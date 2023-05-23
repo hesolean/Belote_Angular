@@ -1,0 +1,16 @@
+h2, .chip {
+    padding-left: 20px;
+}
+
+.chip {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 2em;
+    width: 6em;
+}
+
+.mat-mdc-chip-set {
+    max-width : 100px ;
+ }

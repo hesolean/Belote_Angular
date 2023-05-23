@@ -1,0 +1,17 @@
+.defpli {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    margin: 2em;
+    color: darkgreen;
+    justify-content: center;
+    align-items: left;
+    background-color: lightgreen;    
+    border-radius: 15px;
+    border: 5px double darkgreen;
+    padding: 20px;
+    margin-bottom: 2rem;
+}

@@ -1,0 +1,17 @@
+.displayEquipes {
+    font-size: 1.5em;
+    color: darkgreen;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+
+}
+
+li {
+    
+}

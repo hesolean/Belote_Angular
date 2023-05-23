@@ -1,0 +1,30 @@
+<!-- je crée une div qui me sert juste à faire du css pour centrer mon formulaire -->
+<div class="wrapper">
+    <!-- je crée un formulaire avec un formGroup qui est égal à la variable formValues du fichier form.component.ts -->
+     <!-- je crée un écouteur d'évènement sur la soumission du formulaire avec (ngSubmit) -->
+     <!-- lorsque le formulaire est soumis, je lance la méthode onSubmit() du fichier form.component.ts -->
+    <form [formGroup]="formValues" (ngSubmit)="onSubmit()">
+      <h2>Connexion</h2>
+      <div class="element">
+        <label  for="email">Email</label>
+        <!-- je crée un input et je signale que ce dernier est relié à la variable email de l'objet formValues
+        du fichier form.component.ts à l'aide de formControlName="email" -->
+        <input formControlName="email" type="email" id="email" name="email" placeholder="saisir une adresse email" />
+        <!-- je crée un span qui affiche un message d'erreur si le champ email n'est pas renseigné -->
+        <span *ngIf="submitted && form['email'].hasError('required')">Veuillez renseigner une adresse email</span>
+        <!-- je crée un span qui affiche un message d'erreur si le champ email n'est pas au bon format -->
+        <span *ngIf="submitted && form['email'].hasError('email')">L'email n'est pas au bon format</span>
+      </div>
+      <div class="element">
+        <label for="password">Mot de passe</label>
+        <input formControlName="password" type="password" id="password" name="password" placeholder="saisir un mot de passe" />
+        <span *ngIf="submitted && form['password'].hasError('required')">Veuillez renseigner un mot de passe</span>
+        <span *ngIf="submitted && form['password'].hasError('minlength')">Le mot de passe doit contenir au moins 8 caractères</span>
+      </div>
+      <!-- je crée un bouton de type submit qui permet de soumettre le formulaire et je lui donne un nom au travers de [value]-->
+      <app-button type="submit" [value]="btnValide"></app-button>
+    </form>
+    <!-- je crée un span qui affiche un message de validation du formulaire si le formulaire est soumis et validé -->
+    <span *ngIf="submitted && formValidated" class="result">Connexion en cours ...</span>
+  </div>
+  

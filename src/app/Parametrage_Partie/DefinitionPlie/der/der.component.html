@@ -1,0 +1,9 @@
+
+<div class="chip">
+    <mat-chip-listbox class = "mat-mdc-chip-set-stacked" aria-label = "Sélection 10 de der"> 
+        <mat-chip-option *ngFor = "let equipe of availableEquipes" [color] = "equipe.color" >
+            {{equipe.name}}
+        </mat-chip-option>
+    </mat-chip-listbox>
+</div>
+    

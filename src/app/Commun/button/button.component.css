@@ -1,0 +1,15 @@
+button {
+    background-color: lightgreen;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 3em;
+    width: 6em;
+    border: 5px outset darkgreen;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    color: darkgreen;
+}

@@ -1,0 +1,6 @@
+.equipes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 30px;
+}
