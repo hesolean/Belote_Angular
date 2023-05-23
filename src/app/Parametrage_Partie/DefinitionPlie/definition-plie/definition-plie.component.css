@@ -1,17 +1,24 @@
 .defpli {
     width: 90%;
+    height: 400px;
     margin-left: auto;
     margin-right: auto;
-    height: 400px;
     display: flex;
-    flex-direction: row;
-    margin: 2em;
+    flex-direction: column;
+    flex-wrap: wrap;
     color: darkgreen;
     justify-content: center;
-    align-items: left;
+    align-items: center;
     background-color: lightgreen;    
     border-radius: 15px;
     border: 5px double darkgreen;
     padding: 20px;
-    margin-bottom: 2rem;
+}
+
+.critere {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: auto;
+
 }

@@ -1,4 +1,7 @@
 .toggle-groupe {
-    margin-left : 20px ;
-    margin-right : 20px ;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
  }

@@ -21,6 +21,7 @@ export class DerComponent implements OnInit{
 
   ngOnInit():void {
     this.equipes = this.service.equipes;
+     // liste des éléments à cocher
     this.availableEquipes = [
       { 
         name : this.equipes.find(item => item.idEquipes == 1)?.equipe , 
@@ -31,11 +32,5 @@ export class DerComponent implements OnInit{
         color : 'accent' 
       }
       ] ;
-  }
-
-  
-
- // liste des éléments à cocher
-
-  
+  }  
 }

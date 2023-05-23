@@ -24,6 +24,7 @@ import { ButtonComponent } from './Commun/button/button.component';
 import { AddEquipeComponent } from './Parametrage_Partie/equipe/add-team/add-team.component';
 import { DisplayComponent } from './Parametrage_Partie/equipe/display/display.component';
 import { DixDerComponent } from './Parametrage_Partie/DefinitionPlie/dix-der/dix-der.component';
+import { AnnoncesComponent } from './Parametrage_Partie/DefinitionPlie/annonces/annonces.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { DixDerComponent } from './Parametrage_Partie/DefinitionPlie/dix-der/dix
     ButtonComponent,
     AddEquipeComponent,
     DisplayComponent,
-    DixDerComponent
+    DixDerComponent,
+    AnnoncesComponent
     ],
   imports: [
     BrowserModule,
