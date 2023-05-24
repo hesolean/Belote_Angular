@@ -1,0 +1,14 @@
+div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+h2 {
+    margin-left: 20px;
+}
+.selection {
+display: flex;
+flex-direction: column;
+}
