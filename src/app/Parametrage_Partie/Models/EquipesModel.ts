@@ -7,14 +7,14 @@ export default class EquipesModel {
      */
     private _idEquipes: number;
     private _equipe: string;
-    private _has10DeDer: boolean;
+    private _has10DeDer: number;
     private _totalPlie: number;
     private _totalPartie: number;
     private _done: boolean = false;
     private static _count: number = 1;
 
     /**constructeur d'un modèle */
-    constructor(equipe: string,has10DeDer: boolean, totalPlie: number, totalPartie: number) {
+    constructor(equipe: string,has10DeDer: number, totalPlie: number, totalPartie: number) {
         this._equipe = equipe;
         this._has10DeDer = has10DeDer;
         this._totalPlie = totalPlie;
@@ -32,7 +32,7 @@ export default class EquipesModel {
     get equipe(): string {
         return this._equipe;
     }
-    get has10DeDer(): boolean {
+    get has10DeDer(): number {
         return this._has10DeDer;
     }
     get totalPlie(): number {
@@ -54,7 +54,7 @@ export default class EquipesModel {
     set equipe(value: string) {
         this._equipe = value;
     }
-    set has10DeDer(value: boolean) {
+    set has10DeDer(value: number) {
         this._has10DeDer = value;
     }
     set totalPlie(value: number) {

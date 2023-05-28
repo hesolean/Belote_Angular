@@ -14,7 +14,7 @@ export class DisplayComponent implements OnInit{
 
   // décorateur utilise dans le ngFor pour lister tous les éléments du tableau
   @Input()
-  equipes: EquipesModel[] = [new EquipesModel('',false, 0, 0)]
+  equipes: EquipesModel[] = [new EquipesModel('',0, 0, 0)]
 
   /**évènement lié au template team.component pour la méthode onChange
   @Output()

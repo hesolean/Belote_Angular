@@ -6,7 +6,8 @@ import { EquipeService } from "./team.service";
     providedIn: 'root'
 })
 export class ComptePointService {
-    equipe: EquipesModel[] = [];
+    equipes: EquipesModel[] = [new EquipesModel('',0, 0, 0)];
+    has10DeDer!: number;
     equipe10Der!: number;
 
     constructor(private teamService: EquipeService) {}
@@ -15,7 +16,7 @@ export class ComptePointService {
    * Je récupère les informations des équipes
    */
     getEquipe = () => {
-        this.equipe = this.teamService.equipes;
+        this.equipes = this.teamService.equipes;
     }
 
     /**
@@ -24,15 +25,19 @@ export class ComptePointService {
      */
     setEquipe10Der = (id: number) => {
         this.equipe10Der = id;
-        console.log("l'équipe sélectionnée pour 10 de der est : "+this.equipe10Der);
+        console.log("l'équipe sélectionnée pour 10 de der est : "+this.equipe10Der);  
     }
     
+    setHas10DeDer = () => {
+    this.has10DeDer = 10;
+    }
     /**
      * méthode qui permet d'ajouter des points à une équipe lors de la définition de la partie
-     * @param idEquipes id de l'équipe qui reçoit les points
+     * @param equipe10Der id de l'équipe qui reçoit les points
      */
     onAddPoint10Der = (equipe10Der: number) => {
-        
+        const result = this.equipes.find(x => x.idEquipes == equipe10Der);
+        this.setEquipe10Der;
     }
 
     onRemovepoint(points: number, equipe: EquipesModel){
@@ -44,5 +49,6 @@ export class ComptePointService {
      */
     onAddPointTotal = () => {
         this.onAddPoint10Der(this.equipe10Der);
+       
     }
 }

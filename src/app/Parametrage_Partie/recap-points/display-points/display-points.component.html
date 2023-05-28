@@ -1,0 +1,15 @@
+<div>
+    <ul *ngFor="let item of equipes">
+        <li>
+            <!--
+            <input type="checkbox" [checked]="item.done" (click)="onChange(item.idEquipes)"> 
+            je n'utilise pas cette fonctionnalité-->
+            <u>{{item.equipe}}</u>
+            {{item.totalPlie}}
+            <strong>{{item.totalPartie}}</strong>
+            <!--
+            <app-button [value]="btnDelete" (event)="delete(item.idEquipes)"></app-button> 
+            je n'utilise pas cette fonctionnalité-->
+        </li>
+    </ul>
+</div>
