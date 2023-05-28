@@ -18,6 +18,9 @@ export class ButtonComponent implements OnInit{
 
   ngOnInit(): void {}
 
+  /**
+   * écoute l'évènement du composant qui utilise le bouton pour adapter le nom du bouton
+   */
   action = () => {
     this.event.emit();
   }

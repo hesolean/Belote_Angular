@@ -1,22 +1,10 @@
-<div>
-    <div class="selection">
-    <h2>Tierce :</h2>
-    
-        <app-annonce></app-annonce>
+<h1><u>Annonces</u></h1>
+<div class="annonces">    
+    <div  *ngFor = "let annonce of availableAnnonces; let i=index">    
+        <div class="annonce">
+            <h2>{{annonce.name}}</h2>
+            <app-annonce></app-annonce>
+        </div>   
     </div>
-    <div class="selection">
-        <h2>Cinquante :</h2>
-        <app-annonce></app-annonce>
-    </div>
-    
-    <div class="selection">
-        <h2>Cent :</h2>
-        <app-annonce></app-annonce>
-    </div>
-    
-    <div class="selection">
-        <h2>Carré :</h2>
-        <app-annonce></app-annonce>
-    </div>
-    
 </div>
+

@@ -11,5 +11,6 @@
         <app-annonces></app-annonces>
     </div>
     
-    
+    <!-- $event va vers la méthode onAddPointTotal du composant ComptePointService-->
+    <app-button [value]="btnValide" (click)="onAddPointTotal($event)"></app-button>
 </div>
