@@ -3,6 +3,7 @@ import { ThemePalette } from '@angular/material/core';
 import { EquipeService } from '../../Services/team.service';
 import { ComptePointService } from '../../Services/compte-point.service';
 import EquipesModel from '../../Models/EquipesModel';
+import { DefinitionPlieComponent } from '../definition-plie/definition-plie.component';
 
 // interface pour définir la liste des éléments à cocher
 export interface ChipColor {
@@ -21,7 +22,7 @@ export class CapotComponent implements OnInit{
 
   // je crée un tableau pour renseigner les étiquettes des boutons chip
   availableColors: ChipColor[] = [];
-  constructor(private teamService: EquipeService, private comptePointService: ComptePointService) {}
+  constructor(private teamService: EquipeService, private comptePointService: ComptePointService, private definitionPlie: DefinitionPlieComponent) {}
 
   ngOnInit():void {
     this.equipes = this.teamService.equipes;
@@ -40,5 +41,7 @@ export class CapotComponent implements OnInit{
    */
   typeCapot(type: string): void {
     this.comptePointService.setCapot(type);
+    // j'appelle la méthode du composant definitionPlie pour forcer le statut du boolean affiche
+    this.definitionPlie.onChangeAffiche(type);
   }
 }

@@ -53,7 +53,7 @@ export class ComptePointService {
      * @param type type de capot
      */
     setCapot = (type: string) => {
-        this.capot = type;        
+        this.capot = type;     
     }
 
     /**
@@ -75,6 +75,8 @@ export class ComptePointService {
                 this.pointsPlieEquipe0 += 160;
             }
         }
+
+        
     }
 
     /**

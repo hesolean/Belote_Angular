@@ -7,7 +7,6 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 // Les composants
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

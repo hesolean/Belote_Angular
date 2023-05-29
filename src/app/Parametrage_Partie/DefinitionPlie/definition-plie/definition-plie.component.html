@@ -4,8 +4,12 @@
     <div class="critere">
         <app-pris-atout></app-pris-atout>
         <app-capot></app-capot>
-        <app-dix-der></app-dix-der>
-        <app-points-equipe></app-points-equipe>
+        <!--je crée un ng container pour conditionner l'affichage des 2 composants en fonction du type de capot
+        les conteneurs s'affichent si le capot est "Aucun"-->
+        <ng-container *ngIf="affiche">
+            <app-dix-der></app-dix-der>
+            <app-points-equipe></app-points-equipe>
+        </ng-container>
     </div>
     <div class="critere">
         <app-annonces></app-annonces>
