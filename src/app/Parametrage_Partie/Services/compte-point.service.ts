@@ -48,6 +48,12 @@ export class ComptePointService {
         this.preneur = id;
         console.log("le preneur est : "+this.preneur);
     }
+
+    setCapot = (type: string) => {
+        this.capot = type;
+        console.log("type de cpaot : "+ this.capot);
+        
+    }
     /**
      * je récupère l'id de l'équipe qui va recevoir le 10 de der
      * @param id id equipe

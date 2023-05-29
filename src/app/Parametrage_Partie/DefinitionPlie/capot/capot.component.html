@@ -2,7 +2,10 @@
 <div class="chip">
     <!-- utilisation des matériaux angular pour créer la liste de choix-->
     <mat-chip-listbox class = "mat-mdc-chip-set-stacked" aria-label = "Sélection de capot"> 
-        <mat-chip-option *ngFor = "let chip of availableColors" sélectionné [color] = "chip.color" > {{chip.name}} </mat-chip-option>
+        <mat-chip-option *ngFor = "let chip of availableColors" sélectionné [color] = "chip.color"
+         (selectionChange)="typeCapot(chip.name)"> <!--() détecte le changement de sélection des boutons-->
+            {{chip.name}}
+        </mat-chip-option>
     </mat-chip-listbox>
     
 </div>
