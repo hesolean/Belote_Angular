@@ -34,12 +34,4 @@ export class EquipeComponent implements OnInit{
   addEquipe = (e: string) => {
     this.teamService.addEquipe(e);    
   }  
-
-  /**
-   * Je n'utilise pas encore cette fonctionnalité
-   * @param id 
-   */
-  onChange = (id: number) => {
-    this.teamService.onChange(id);
-  }
 }

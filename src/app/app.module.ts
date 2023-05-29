@@ -25,8 +25,8 @@ import { AddEquipeComponent } from './Parametrage_Partie/equipe/add-team/add-tea
 import { DisplayComponent } from './Parametrage_Partie/equipe/display/display.component';
 import { DixDerComponent } from './Parametrage_Partie/DefinitionPlie/dix-der/dix-der.component';
 import { AnnoncesComponent } from './Parametrage_Partie/DefinitionPlie/annonces/annonces.component';
-import { DisplayPointsComponent } from './Parametrage_Partie/recap-points/display-points/display-points.component';
 import { RecapPointsComponent } from './Parametrage_Partie/recap-points/recap-points.component';
+import { DisplayPointsComponent } from './Parametrage_Partie/recap-points/display-points/display-points.component';
 
 @NgModule({
   declarations: [

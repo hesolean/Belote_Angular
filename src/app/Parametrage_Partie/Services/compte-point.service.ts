@@ -6,8 +6,14 @@ import { EquipeService } from "./team.service";
     providedIn: 'root'
 })
 export class ComptePointService {
-    equipes: EquipesModel[] = [new EquipesModel('',0, 0, 0)];
-    has10DeDer!: number;
+    private _pointsEquipe0: Array<number> = new Array();
+    private _pointsEquipe1: Array<number> = new Array();
+
+
+    equipes: EquipesModel[] = [new EquipesModel('')];
+    pointsPlieEquipe0: number = 0;
+    pointsPlieEquipe1: number = 0;
+
     equipe10Der!: number;
 
     constructor(private teamService: EquipeService) {}
@@ -28,27 +34,34 @@ export class ComptePointService {
         console.log("l'équipe sélectionnée pour 10 de der est : "+this.equipe10Der);  
     }
     
-    setHas10DeDer = () => {
-    this.has10DeDer = 10;
-    }
     /**
      * méthode qui permet d'ajouter des points à une équipe lors de la définition de la partie
      * @param equipe10Der id de l'équipe qui reçoit les points
      */
     onAddPoint10Der = (equipe10Der: number) => {
-        const result = this.equipes.find(x => x.idEquipes == equipe10Der);
-        this.setEquipe10Der;
+        if (equipe10Der == 0) {
+            this.pointsPlieEquipe0 += 10
+            console.log("equipe 0 resoit 10 de der " +this.pointsPlieEquipe0);
+        }
+        if (equipe10Der == 1) {
+            this.pointsPlieEquipe1 += 10
+            console.log("equipe 1 resoit 10 de der "+this._pointsEquipe1);            
+        }
     }
 
     onRemovepoint(points: number, equipe: EquipesModel){
 
     }
-
+ 
     /**
      * autoriser l'ajout des points du plie à chaque équipe
      */
     onAddPointTotal = () => {
         this.onAddPoint10Der(this.equipe10Der);
-       
+        this._pointsEquipe0.push(this.pointsPlieEquipe0);
+        this._pointsEquipe1.push(this.pointsPlieEquipe1);
+        console.log("total points eq 0 " +this._pointsEquipe0);
+        console.log("total points eq 1 " +this._pointsEquipe1);
+
     }
 }
