@@ -17,7 +17,15 @@ export class ComptePointService {
     equipe10Der!: number;
 
     constructor(private teamService: EquipeService) {}
-
+    /**
+     * getteurs
+     */
+    get pointsEquipe0(): Array<number> {
+        return this._pointsEquipe0
+    }
+    get pointsEquipe1(): Array<number> {
+        return this._pointsEquipe1
+    }
     /**
    * Je récupère les informations des équipes
    */
@@ -46,7 +54,7 @@ export class ComptePointService {
         if (equipe10Der == 1) {
             this.pointsPlieEquipe1 += 10
             console.log("equipe 1 resoit 10 de der "+this._pointsEquipe1);            
-        }
+        }        
     }
 
     onRemovepoint(points: number, equipe: EquipesModel){
@@ -62,6 +70,8 @@ export class ComptePointService {
         this._pointsEquipe1.push(this.pointsPlieEquipe1);
         console.log("total points eq 0 " +this._pointsEquipe0);
         console.log("total points eq 1 " +this._pointsEquipe1);
+        this.pointsPlieEquipe0 = 0;
+        this.pointsPlieEquipe1 = 0;
 
     }
 }

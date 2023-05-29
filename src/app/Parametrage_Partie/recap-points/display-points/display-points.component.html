@@ -1,9 +1,12 @@
 <div>
-    <ul *ngFor="let item of equipes">
-        <li>
-            
-            <u>{{item.equipe}}</u>
-            
+    <ul>
+        <li>            
+            <u >Equipe 1</u>
+            <div *ngFor="let point of pointsPlieEquipe0"> {{point}} </div>
+        </li>
+        <li>            
+            <u >Equipe 2</u>
+            <div *ngFor="let point of pointsPlieEquipe1"> {{point}} </div>
         </li>
     </ul>
 </div>
