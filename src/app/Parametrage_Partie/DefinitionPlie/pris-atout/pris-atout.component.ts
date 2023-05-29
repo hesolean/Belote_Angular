@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { EquipeService } from '../../Services/team.service';
+import { ComptePointService } from '../../Services/compte-point.service';
 
 @Component({
   selector: 'app-pris-atout',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./pris-atout.component.css']
 })
 export class PrisAtoutComponent {
+  preneur!: number;
+  constructor(private teamService: EquipeService, private comptePointService: ComptePointService) {}
 
+  ngOnInit(): void {}
+  
+  /**
+   * je transmets l'équipe qui a pris
+   * @param id id équipe
+   */
+  selectedTeam(id: number):void {
+    this.comptePointService.setPreneur(id);
+  }
 }

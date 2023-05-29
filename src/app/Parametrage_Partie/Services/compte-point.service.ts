@@ -13,8 +13,15 @@ export class ComptePointService {
     equipes: EquipesModel[] = [new EquipesModel('')];
     pointsPlieEquipe0: number = 0;
     pointsPlieEquipe1: number = 0;
-
+    
+    preneur!: number;
+    
+    capot!: string;
+    
     equipe10Der!: number;
+    
+    equipeCompte!: number;
+    pointsEquipeCompte!: number;
 
     constructor(private teamService: EquipeService) {}
     /**
@@ -33,6 +40,14 @@ export class ComptePointService {
         this.equipes = this.teamService.equipes;
     }
 
+    /**
+     * je récupère l'équipe qui a pris
+     * @param id id équipe
+     */
+    setPreneur = (id: number) => {
+        this.preneur = id;
+        console.log("le preneur est : "+this.preneur);
+    }
     /**
      * je récupère l'id de l'équipe qui va recevoir le 10 de der
      * @param id id equipe
@@ -57,9 +72,6 @@ export class ComptePointService {
         }        
     }
 
-    onRemovepoint(points: number, equipe: EquipesModel){
-
-    }
  
     /**
      * autoriser l'ajout des points du plie à chaque équipe
