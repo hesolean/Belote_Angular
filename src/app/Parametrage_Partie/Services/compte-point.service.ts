@@ -75,8 +75,6 @@ export class ComptePointService {
                 this.pointsPlieEquipe0 += 160;
             }
         }
-
-        
     }
 
     /**
@@ -100,7 +98,33 @@ export class ComptePointService {
         }        
     }
 
+    /**
+     * je récupère l'équipe qui récupère les points comptés
+     * @param id id équipe
+     */
+    setEquipePointsComptes = (id: number) => {
+        this.equipeCompte = id;
+        console.log("équipe comptée " + this.equipeCompte);
+        
+        }
  
+        /**
+         * je récupère les points du pli de l'équipe comptée
+         * @param points points comptés par l'utilisateur
+         */
+    setPointsComptes = (points: number) => {
+        this.pointsEquipeCompte = points;
+        console.log("points comptée " + this.pointsEquipeCompte);
+
+    }
+    onAddPointsComptes = () => {
+        if (this.equipeCompte == 0) {
+            this.pointsPlieEquipe0 += this.pointsEquipeCompte;
+        }
+        if (this.equipeCompte == 1) {
+            this.pointsPlieEquipe1 += this.pointsEquipeCompte;
+        }    
+    }
     /**
      * autoriser l'ajout des points du plie à chaque équipe
      */
@@ -109,6 +133,7 @@ export class ComptePointService {
             this.onAddPointCapot();
         } else {
             this.onAddPoint10Der();
+            this.onAddPointsComptes();
         }
         
         this._pointsEquipe0.push(this.pointsPlieEquipe0);
