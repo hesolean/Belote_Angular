@@ -120,10 +120,12 @@ export class ComptePointService {
      */
     onAddPointsComptes = () => {
         if (this.equipeCompte == 0) {
-            this.pointsPlieEquipe0 += this.pointsEquipeCompte;            
+            this.pointsPlieEquipe0 += this.pointsEquipeCompte;
+            this.pointsPlieEquipe1 += 160-this.pointsEquipeCompte;
         }
         if (this.equipeCompte == 1) {
             this.pointsPlieEquipe1 += this.pointsEquipeCompte;
+            this.pointsPlieEquipe0 += 160-this.pointsEquipeCompte;
         }    
     }
     /**
