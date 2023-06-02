@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EquipeService } from '../../Services/team.service';
 import { ComptePointService } from '../../Services/compte-point.service';
-import { SharedService } from '../../Services/shared.service';
 
 
 @Component({
@@ -26,8 +25,7 @@ export class DefinitionPlieComponent implements OnInit{
 
   constructor(
     private teamService: EquipeService, 
-    private comptePointService: ComptePointService, 
-    private sharedService: SharedService) {}
+    private comptePointService: ComptePointService) {}
   
   ngOnInit(): void {
       
@@ -51,13 +49,6 @@ export class DefinitionPlieComponent implements OnInit{
    * @param e $event du template pour signaler le click
    */
   onAddPointTotal = (e: any) => {
-    // récupère la valeur de l'input
-    const value = this.inputValue;
-console.log("onAddPointTotal : " + value);
-
-    // transmets la valeur dans le shared service
-    this.sharedService.setInputValue(value);
-
     // appelle la fonction de compte service pour provoquer l'ajout des points
     this.comptePointService.onAddPointTotal();   
   }

@@ -26,7 +26,6 @@ import { DixDerComponent } from './Parametrage_Partie/DefinitionPlie/dix-der/dix
 import { AnnoncesComponent } from './Parametrage_Partie/DefinitionPlie/annonces/annonces.component';
 import { RecapPointsComponent } from './Parametrage_Partie/recap-points/recap-points.component';
 import { DisplayPointsComponent } from './Parametrage_Partie/recap-points/display-points/display-points.component';
-import { SharedService } from './Parametrage_Partie/Services/shared.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +59,6 @@ import { SharedService } from './Parametrage_Partie/Services/shared.service';
     ReactiveFormsModule
   ],
   providers: [
-    SharedService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,17 @@
+{
+    "workbench.colorCustomizations": {
+        //LES DEUX VALEURS DOIVENT ÊTRE LES MÊMES
+        //COULEUR D'ARRIERE PLAN
+        "titleBar.activeBackground" : "#0bf003e3",
+        "titleBar.inactiveBackground": "#0bf003e3",
+
+
+        
+        //LES DEUX VALEURS DOIVENT ÊTRE LES MÊMES
+        //COULEUR DU TEXTE
+        "titleBar.activeForeground": "#009dff74",
+        "titleBar.inactiveForeground": "#009dff74",
+
+
+}
+}

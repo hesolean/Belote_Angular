@@ -2,7 +2,7 @@
     <h2>Point de l'équipe comptée :</h2>
 
     <input class="input" type="number" placeholder="ajouter le total de l'équipe"
-    onkeydown="return addInput(event.key)">
+    [(ngModel)]="points" (input)="pointsEquipe()">
     <app-der (newTeamSelect)="selectedTeam($event)"></app-der>
 </div>
 

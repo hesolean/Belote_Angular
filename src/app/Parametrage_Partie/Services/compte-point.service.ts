@@ -21,7 +21,7 @@ export class ComptePointService {
     equipe10Der!: number;
     
     equipeCompte!: number;
-    pointsEquipeCompte!: number;
+    pointsEquipeCompte: number = 0;
 
     constructor(private teamService: EquipeService) {}
     /**
@@ -103,23 +103,24 @@ export class ComptePointService {
      * @param id id équipe
      */
     setEquipePointsComptes = (id: number) => {
-        this.equipeCompte = id;
-        console.log("équipe comptée " + this.equipeCompte);
-        
+        this.equipeCompte = id;        
         }
  
-        /**
-         * je récupère les points du pli de l'équipe comptée
-         * @param points points comptés par l'utilisateur
-         */
+    /**
+     * je récupère les points du pli de l'équipe comptée
+     * @param points points comptés par l'utilisateur
+     */
     setPointsComptes = (points: number) => {
-        this.pointsEquipeCompte = points;
-        console.log("points comptée " + this.pointsEquipeCompte);
-
+        this.pointsEquipeCompte = 0; // je remets à 0 avant de prendre la dernière valeur tapée dans l'input
+        this.pointsEquipeCompte += points;        
     }
+
+    /**
+     * j'ajoute les points à la bonne équipe
+     */
     onAddPointsComptes = () => {
         if (this.equipeCompte == 0) {
-            this.pointsPlieEquipe0 += this.pointsEquipeCompte;
+            this.pointsPlieEquipe0 += this.pointsEquipeCompte;            
         }
         if (this.equipeCompte == 1) {
             this.pointsPlieEquipe1 += this.pointsEquipeCompte;
