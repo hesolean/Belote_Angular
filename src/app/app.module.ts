@@ -6,6 +6,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 // Les composants
 import { AppRoutingModule } from './app-routing.module';
@@ -18,7 +20,6 @@ import { PrisAtoutComponent } from './Parametrage_Partie/DefinitionPlie/pris-ato
 import { CapotComponent } from './Parametrage_Partie/DefinitionPlie/capot/capot.component';
 import { PointsEquipeComponent } from './Parametrage_Partie/DefinitionPlie/points-equipe/points-equipe.component';
 import { DerComponent } from './Parametrage_Partie/DefinitionPlie/der/der.component';
-import { AnnonceComponent } from './Parametrage_Partie/DefinitionPlie/annonce/annonce.component';
 import { ButtonComponent } from './Commun/button/button.component';
 import { AddEquipeComponent } from './Parametrage_Partie/equipe/add-team/add-team.component';
 import { DisplayComponent } from './Parametrage_Partie/equipe/display/display.component';
@@ -38,7 +39,6 @@ import { DisplayPointsComponent } from './Parametrage_Partie/recap-points/displa
     CapotComponent,
     PointsEquipeComponent,
     DerComponent,
-    AnnonceComponent,
     ButtonComponent,
     AddEquipeComponent,
     DisplayComponent,
@@ -56,7 +56,8 @@ import { DisplayPointsComponent } from './Parametrage_Partie/recap-points/displa
     MatButtonToggleModule,
     MatChipsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCheckboxModule    
   ],
   providers: [
   ],

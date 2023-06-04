@@ -2,17 +2,18 @@
 <div class="annonces">
     <div class="annonce">
         <h2>Belote et re !!</h2>
-        <div *ngFor = "let equipe of equipes">
-            <input type="checkbox">
-            <label for="equipes"> {{equipe.nomEquipe}} </label>
-        </div>
+        <app-der (newTeamSelect)="selectedTeamBelote($event)"></app-der>
     </div>
         
     <div  *ngFor = "let annonce of availableAnnonces; let i=index">    
         <div class="annonce">
             <h2>{{annonce.name}}</h2>
-            <app-annonce></app-annonce>
+            <app-der (newTeamSelect)="selectedTeamsAnnonces(annonce.name, $event)"></app-der>
         </div>   
+    </div>
+    <div class="annonce">
+        <h2>Carré de 8</h2>
+        <mat-checkbox [(ngModel)]="carre8Checked" (ngModelChange)="carre8()">Attention j'annule les annonces ...</mat-checkbox>
     </div>
 </div>
 

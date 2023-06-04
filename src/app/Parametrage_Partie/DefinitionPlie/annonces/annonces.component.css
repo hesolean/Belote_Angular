@@ -1,34 +1,21 @@
-h1 {
+h1, h2 {
     text-align: center;
 }
 
 .annonces {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     margin: auto;
 }
 
-h2 {
-    margin-left: 20px;
-    text-align: center;
-}
-
 .annonce {
-display: flex;
-flex-direction: column;
-padding: 10px;
-margin: 8px;
-border-style: outset;
-border-radius: 15px;
-}
-
-input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
+    padding: 10px;
     margin: 8px;
-}
-
-label {
-    font-size: 1.5em;
+    border-style: outset;
+    border-radius: 15px;
+    width: 150px;
+    height: 170px;
 }

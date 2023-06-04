@@ -1,15 +1,12 @@
-h2, .chip {
-    padding-left: 20px;
-}
 
 .chip {
     text-align: center;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
+    align-items: center;
+    justify-items: center;
     height: 2em;
     width: 6em;
+    
 }
 
 .mat-mdc-chip-set {

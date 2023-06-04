@@ -1,8 +1,20 @@
-h2, .chip {
-    padding-left: 20px;
+div {
+    padding: 10px;
+    margin: 8px;
+    border-style: outset;
+    border-radius: 15px;
+    width: 150px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.chip {
+h2 {
+    text-align: center;
+}
+
+mat-chip-listbox {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -11,7 +23,3 @@ h2, .chip {
     height: 2em;
     width: 6em;
 }
-
-.mat-mdc-chip-set {
-    max-width : 100px ;
- }

@@ -1,5 +1,13 @@
 div {
-    height: 220px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 8px;
+    border-style: outset;
+    border-radius: 15px;
+    width: 350px;
 }
 .toggle-groupe {
     margin-left: auto;

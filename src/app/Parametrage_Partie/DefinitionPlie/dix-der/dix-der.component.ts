@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EquipeService } from '../../Services/team.service';
 import { ComptePointService } from '../../Services/compte-point.service';
 
 @Component({
@@ -8,8 +7,8 @@ import { ComptePointService } from '../../Services/compte-point.service';
   styleUrls: ['./dix-der.component.css']
 })
 export class DixDerComponent implements OnInit{
-  equipe10Der!: number;
-  constructor(private teamService: EquipeService, private comptePointService: ComptePointService) {}
+
+  constructor(private comptePointService: ComptePointService) {}
 
   ngOnInit(): void {}
   
