@@ -6,11 +6,11 @@ import { EquipeService } from "./team.service";
     providedIn: 'root'
 })
 export class ComptePointService {
-    private _pointsEquipe0: Array<number> = new Array();
-    private _pointsEquipe1: Array<number> = new Array();
+    private _pointsPliesEquipe0: Array<number> = new Array();
+    private _pointsPliesEquipe1: Array<number> = new Array();
 
-
-    equipes: EquipesModel[] = [new EquipesModel('')];
+    // config plie
+    equipes: EquipesModel[] = [new EquipesModel('', [], 0)];
     pointsPlieEquipe0: number = 0;
     pointsPlieEquipe1: number = 0;
     
@@ -23,15 +23,19 @@ export class ComptePointService {
     equipeCompte!: number;
     pointsEquipeCompte: number = 0;
 
+    // total partie
+    totalEquipe0: number = this.teamService.totalEquipe(0);
+    totalEquipe1: number = this.teamService.totalEquipe(1);
+
     constructor(private teamService: EquipeService) {}
     /**
      * getteurs
      */
-    get pointsEquipe0(): Array<number> {
-        return this._pointsEquipe0
+    get pointsPliesEquipe0(): Array<number> {
+        return this._pointsPliesEquipe0
     }
-    get pointsEquipe1(): Array<number> {
-        return this._pointsEquipe1
+    get pointsPliesEquipe1(): Array<number> {
+        return this._pointsPliesEquipe1
     }
     /**
    * Je récupère les informations des équipes
@@ -132,19 +136,25 @@ export class ComptePointService {
      * autoriser l'ajout des points du plie à chaque équipe
      */
     onAddPointTotal = () => {
+        // j'applique la méthode de points en fonction des coches de la partie capot
         if (this.capot == "Capot" || this.capot == "Dedans") {
             this.onAddPointCapot();
         } else {
             this.onAddPoint10Der();
             this.onAddPointsComptes();
         }
+        // j'ajoute les points du plie à chaque équipe
+        this.teamService.addPointsPlies(0, this.pointsPlieEquipe0);
+        this.teamService.addPointsPlies(1, this.pointsPlieEquipe1);
         
-        this._pointsEquipe0.push(this.pointsPlieEquipe0);
-        this._pointsEquipe1.push(this.pointsPlieEquipe1);
-        console.log("total points eq 0 " +this._pointsEquipe0);
-        console.log("total points eq 1 " +this._pointsEquipe1);
+        // je mets à jour le total des équipes
+        this.teamService.newTotalEquipe(0, this.pointsPlieEquipe0);
+        this.teamService.newTotalEquipe(1, this.pointsPlieEquipe1);
+
+        console.log("total points eq 0 " +this.teamService.totalEquipe(0));
+        console.log("total points eq 1 " +this.teamService.totalEquipe(1));
         this.pointsPlieEquipe0 = 0;
         this.pointsPlieEquipe1 = 0;
-
+        
     }
 }

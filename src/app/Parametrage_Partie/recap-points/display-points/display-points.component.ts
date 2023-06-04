@@ -11,14 +11,12 @@ import { ComptePointService } from '../../Services/compte-point.service';
 export class DisplayPointsComponent implements OnInit{
 
   equipes: EquipesModel[] = [];
-  pointsPlieEquipe0: Array<number> = [];
-  pointsPlieEquipe1: Array<number> = [];
+  pointsPliesEquipe: Array<number> = [];
 
   constructor(private teamService: EquipeService, private comptePoint: ComptePointService){}
 
   ngOnInit(): void {
     this.getEquipe();
-    this.getPointsPlis();
   }
 
   /**
@@ -28,11 +26,4 @@ export class DisplayPointsComponent implements OnInit{
     this.equipes = this.teamService.equipes;
   }
 
-  /**
-   * Je récupère les points des plies
-   */
-  getPointsPlis = () => {
-    this.pointsPlieEquipe0 = this.comptePoint.pointsEquipe0;
-    this.pointsPlieEquipe1 = this.comptePoint.pointsEquipe1;
-  }
 }
