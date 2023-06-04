@@ -17,4 +17,18 @@ h2 {
 .annonce {
 display: flex;
 flex-direction: column;
+padding: 10px;
+margin: 8px;
+border-style: outset;
+border-radius: 15px;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 8px;
+}
+
+label {
+    font-size: 1.5em;
 }

@@ -5,7 +5,7 @@ div {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    font-size: 1.5em;
+    
 }
 
 input {
@@ -20,4 +20,12 @@ input {
 input::placeholder {
     color: rgb(0,228,0);
 }
-    
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 8px;
+}
+
+label {
+    font-size: 1.5em;
+}

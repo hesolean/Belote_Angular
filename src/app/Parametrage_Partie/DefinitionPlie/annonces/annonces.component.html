@@ -1,5 +1,13 @@
 <h1><u>Annonces</u></h1>
-<div class="annonces">    
+<div class="annonces">
+    <div class="annonce">
+        <h2>Belote et re !!</h2>
+        <div *ngFor = "let equipe of equipes">
+            <input type="checkbox">
+            <label for="equipes"> {{equipe.nomEquipe}} </label>
+        </div>
+    </div>
+        
     <div  *ngFor = "let annonce of availableAnnonces; let i=index">    
         <div class="annonce">
             <h2>{{annonce.name}}</h2>
