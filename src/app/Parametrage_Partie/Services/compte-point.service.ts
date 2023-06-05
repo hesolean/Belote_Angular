@@ -24,13 +24,13 @@ export class ComptePointService {
     pointsEquipeCompte: number = 0;
 
     // equipes recevant les points annonces
-    equipeBelote: number = 0;
-    equipeTierce: number = 0;
-    equipeCinquante: number = 0;
-    equipeCent: number = 0;
-    equipeCarreValet: number = 0;
-    equipeCarre9: number = 0;
-    equipeCarreAutres: number = 0;
+    equipeBelote: number = 2;
+    equipeTierce: number = 2;
+    equipeCinquante: number = 2;
+    equipeCent: number = 2;
+    equipeCarreValet: number = 2;
+    equipeCarre9: number = 2;
+    equipeCarreAutres: number = 2;
     equipeCarre8!: boolean;
 
     // total partie
@@ -96,7 +96,7 @@ export class ComptePointService {
      * @param id id equipe
      */
     setEquipe10Der = (id: number) => {
-        this.equipe10Der = id;
+        this.equipe10Der = id;        
     }
     
     /**
@@ -126,7 +126,9 @@ export class ComptePointService {
      */
     setPointsComptes = (points: number) => {
         this.pointsEquipeCompte = 0; // je remets à 0 avant de prendre la dernière valeur tapée dans l'input
-        this.pointsEquipeCompte += points;        
+
+        this.pointsEquipeCompte += points;  
+      
     }
 
     /**
@@ -135,11 +137,11 @@ export class ComptePointService {
     onAddPointsComptes = () => {
         if (this.equipeCompte == 0) {
             this.pointsPlieEquipe0 += this.pointsEquipeCompte;
-            this.pointsPlieEquipe1 += 160-this.pointsEquipeCompte;
+            this.pointsPlieEquipe1 += 150-this.pointsEquipeCompte;            
         }
         if (this.equipeCompte == 1) {
             this.pointsPlieEquipe1 += this.pointsEquipeCompte;
-            this.pointsPlieEquipe0 += 160-this.pointsEquipeCompte;
+            this.pointsPlieEquipe0 += 150-this.pointsEquipeCompte;
         }    
     }
 
@@ -168,9 +170,7 @@ export class ComptePointService {
     setEquipeCarreAutres = (id: number) => {
         this.equipeCarreAutres = id;
     }
-    setEquipeCarre8 = (carre8Checked: boolean) => {
-        console.log("carré de 8 : "+ carre8Checked);
-        
+    setEquipeCarre8 = (carre8Checked: boolean) => {        
     }
 
     /**
@@ -178,61 +178,74 @@ export class ComptePointService {
      * @param equipe10Der id de l'équipe qui reçoit les points
      */
     onAddPointBelote = () => {
+        
         if (this.equipeBelote == 0) {
             this.pointsPlieEquipe0 += 20
+            
         }
         if (this.equipeBelote == 1) {
             this.pointsPlieEquipe1 += 20
+
         }        
     }
     onAddPointTierce = () => {
-        console.log("je récupère l'équipe tierce");
-        
         if (this.equipeTierce == 0) {
             this.pointsPlieEquipe0 += 20
+
         }
         if (this.equipeTierce == 1) {
             this.pointsPlieEquipe1 += 20
+
         }        
     }
     onAddPointCinquante = () => {
         if (this.equipeCinquante == 0) {
             this.pointsPlieEquipe0 += 50
+
         }
         if (this.equipeCinquante == 1) {
             this.pointsPlieEquipe1 += 50
+
         }        
     }
     onAddPointCent = () => {
         if (this.equipeCent == 0) {
             this.pointsPlieEquipe0 += 100
+
         }
         if (this.equipeCent == 1) {
             this.pointsPlieEquipe1 += 100
+
         }        
     }
     onAddPointCarreValet = () => {
         if (this.equipeCarreValet == 0) {
             this.pointsPlieEquipe0 += 200
+
         }
         if (this.equipeCarreValet == 1) {
             this.pointsPlieEquipe1 += 200
+
         }        
     }
     onAddPointCarre9 = () => {
         if (this.equipeCarre9 == 0) {
             this.pointsPlieEquipe0 += 150
+
         }
         if (this.equipeCarre9 == 1) {
             this.pointsPlieEquipe1 += 150
+
         }        
     }
     onAddPointCarreAutres = () => {
         if (this.equipeCarreAutres == 0) {
             this.pointsPlieEquipe0 += 100
+
         }
         if (this.equipeCarreAutres == 1) {
             this.pointsPlieEquipe1 += 100
+
         }        
     }
     onAddCarre8 = (carre8Checked: boolean) => {
@@ -247,13 +260,13 @@ export class ComptePointService {
         // j'applique la méthode de points en fonction des coches de la partie capot
         if (this.capot == "Capot" || this.capot == "Dedans") {
             this.onAddPointCapot();
+
         } else {
             this.onAddPoint10Der();
             this.onAddPointsComptes();
         }
         // j'ajoute es points d'annonces
         if (!this.equipeCarre8) {
-            console.log("je suis dans la boucle des annonces");
             
             this.onAddPointBelote();
             this.onAddPointTierce();
@@ -273,8 +286,6 @@ export class ComptePointService {
         this.teamService.newTotalEquipe(0, this.pointsPlieEquipe0);
         this.teamService.newTotalEquipe(1, this.pointsPlieEquipe1);
 
-        console.log("total points eq 0 " +this.teamService.totalEquipe(0));
-        console.log("total points eq 1 " +this.teamService.totalEquipe(1));
         this.pointsPlieEquipe0 = 0;
         this.pointsPlieEquipe1 = 0;
         
