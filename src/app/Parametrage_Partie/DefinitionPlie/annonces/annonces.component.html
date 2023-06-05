@@ -8,12 +8,13 @@
     <div  *ngFor = "let annonce of availableAnnonces; let i=index">    
         <div class="annonce">
             <h2>{{annonce.name}}</h2>
-            <app-der (newTeamSelect)="selectedTeamsAnnonces(annonce.name, $event)"></app-der>
+            <app-der (newTeamSelect)="selectedTeamsAnnonces(i, $event)"></app-der>
         </div>   
     </div>
     <div class="annonce">
         <h2>Carré de 8</h2>
-        <mat-checkbox [(ngModel)]="carre8Checked" (ngModelChange)="carre8()">Attention j'annule les annonces ...</mat-checkbox>
+        <input type="checkbox" [(ngModel)]="carre8Checked" (ngModelChange)="carre8()">
+        Attention j'annule les annonces ...
     </div>
 </div>
 

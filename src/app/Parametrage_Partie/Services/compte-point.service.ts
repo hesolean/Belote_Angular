@@ -24,13 +24,13 @@ export class ComptePointService {
     pointsEquipeCompte: number = 0;
 
     // equipes recevant les points annonces
-    equipeBelote!: number;
-    equipeTierce!: number;
-    equipeCinquante!: number;
-    equipeCent!: number;
-    equipeCarreValet!: number;
-    equipeCarre9!: number;
-    equipeCarreAutres!: number;
+    equipeBelote: number = 0;
+    equipeTierce: number = 0;
+    equipeCinquante: number = 0;
+    equipeCent: number = 0;
+    equipeCarreValet: number = 0;
+    equipeCarre9: number = 0;
+    equipeCarreAutres: number = 0;
     equipeCarre8!: boolean;
 
     // total partie
@@ -150,9 +150,7 @@ export class ComptePointService {
     setEquipeBelote = (id: number) => {
         this.equipeBelote = id;
     }
-    setEquipeTierce = (id: number) => {
-        console.log("je suis dans set equipe tierce"+this.equipeTierce);
-        
+    setEquipeTierce = (id: number) => {        
         this.equipeTierce = id;
     }
     setEquipeCinquante = (id: number) => {

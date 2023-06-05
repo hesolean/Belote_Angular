@@ -79,28 +79,23 @@ export class AnnoncesComponent {
     this.comptePointService.setEquipeCarreAutres(id);
   }
 
-  selectedTeamsAnnonces(annonce: string, id: number): void {
-    console.log("je suis dans selectedTeamAnnonces");
-    
-    if (annonce == "Tierce") {
-      this.selectedTeamTierce(id);
-      console.log("je mets les points de la tierce");
-      
-    } else if (annonce == "Cinquante") {
+  selectedTeamsAnnonces(index: number,id: number): void {    
+    if (index == 0) {
+      this.selectedTeamTierce(id);      
+    } else if (index == 1) {
       this.selectedTeamCinquante(id);
-    } else if (annonce == "Cent") {
+    } else if (index == 2) {
       this.selectedTeamCent(id);
-    } else if (annonce == "Carré de Valet") {
+    } else if (index == 3) {
       this.selectedTeamCarreValet(id);
-    } else if (annonce == "Carré de 9") {
+    } else if (index == 4) {
       this.selectedTeamCarre9(id);
-    } else if (annonce == "Carré de As/10/R/D") {
+    } else if (index == 5) {
       this.selectedTeamCarreAutres(id);
     }
   }
 
   carre8(): void {
     this.comptePointService.onAddCarre8(this.carre8Checked);
-    console.log("points" + this.carre8Checked);
   }
 }
