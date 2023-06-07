@@ -1,8 +1,29 @@
 <div>
+  <app-team></app-team>
 
-        <app-team></app-team>
-
-        <app-recap-points></app-recap-points>
-
+  <div class="defPartie">
+    <h1><u>Définition du pli :</u></h1>
+    <form [formGroup]="formValues" (ngSubmit)="paramPartie(formValues)">
+    <div class="input">
+      <label for="points">Points minimum de la partie :</label>
+      <input
+        id="points"
+        type="number"
+        formControlName="pointsPartie"
+      />
+    </div>
+    <div class="input">
+        <label for="annonces">Annonces</label>
+        <input
+                id="annonces"
+                type="checkbox"
+                formControlName="afficheAnnonces"
+        />      
+    </div>
+    <!-- $event va vers la méthode onAddPointTotal du composant ComptePointService-->
+    <app-button [value]="btnValide"></app-button>
+  </form>
+  </div>
+  <app-recap-points *ngIf="afficheTableau"></app-recap-points>
 </div>
-
+<app-definition-plie *ngIf="afficheDefPlie"></app-definition-plie>

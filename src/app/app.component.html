@@ -1,9 +1,7 @@
 <body>
     <!--<app-login></app-login>-->
     <app-definition-partie></app-definition-partie>
-    
-    <app-definition-plie></app-definition-plie>
 
-    <app-button [value]="btnValide"></app-button>
+    <app-button *ngIf="afficheBouton" [value]="btnValide"></app-button>
 
 </body>

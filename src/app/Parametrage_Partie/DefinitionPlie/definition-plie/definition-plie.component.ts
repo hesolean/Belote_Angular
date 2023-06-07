@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EquipeService } from '../../Services/team.service';
 import { ComptePointService } from '../../Services/compte-point.service';
+import { PartieService } from '../../Services/partie.service';
 
 
 @Component({
@@ -20,15 +21,22 @@ export class DefinitionPlieComponent implements OnInit{
   // il est utilisé dans le template
   affiche: boolean = false;
 
+  // je crée un boolean pour récupérer si je dois afficher les annonces
+  afficheAnnonces!: boolean;
+
   // j'utilise le shared service
   inputValue!: number;
 
+  // fin de partie
+  afficheDefPli: boolean = !this.comptePointService.finPartie;
+
   constructor(
+    private partieService: PartieService,
     private teamService: EquipeService, 
     private comptePointService: ComptePointService) {}
   
   ngOnInit(): void {
-      
+      this.afficheAnnonces = this.partieService.afficheAnnonces;
   }
 
   /**
@@ -40,9 +48,7 @@ export class DefinitionPlieComponent implements OnInit{
       this.affiche = true;
     } else {
       this.affiche = false;
-    }
-    console.log(this.affiche);
-    
+    }    
   }
   /**
    * méthode qui appelle celle de ComptePointService

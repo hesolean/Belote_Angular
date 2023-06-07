@@ -9,3 +9,7 @@
     border: 5px double darkgreen;
     margin-bottom: 2rem;
 } 
+
+h1 {
+    text-align: center;
+}

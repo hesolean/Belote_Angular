@@ -1,5 +1,5 @@
 
-<div class="defpli">
+<div  *ngIf="afficheDefPli" class="defpli">
     <h1><u>Définition du pli :</u></h1>
     <div class="critere">
         <app-pris-atout></app-pris-atout>
@@ -12,7 +12,7 @@
         </ng-container>
     </div>
     <div class="critere">
-        <app-annonces></app-annonces>
+        <app-annonces *ngIf="afficheAnnonces"></app-annonces>
     </div>
     
     <!-- $event va vers la méthode onAddPointTotal du composant ComptePointService-->

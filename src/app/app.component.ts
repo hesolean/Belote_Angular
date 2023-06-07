@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ComptePointService } from './Parametrage_Partie/Services/compte-point.service';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // je donne le nom au bouton
-  btnValide: string = "Valider";
-  
+   
   title = 'belote_angular';
+  
+  // option affichage bouton
+  afficheBouton: boolean = this.comptePointsService.finPartie;
+  
+  // je donne le nom au bouton
+  btnValide: string = "Enregistrer la partie";
+
+  constructor(private comptePointsService: ComptePointService) {}
 }

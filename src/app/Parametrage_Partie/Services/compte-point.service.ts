@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import EquipesModel from "../Models/EquipesModel";
 import { EquipeService } from "./team.service";
+import { PartieService } from "./partie.service";
 
 @Injectable({
     providedIn: 'root'
@@ -37,7 +38,13 @@ export class ComptePointService {
     totalEquipe0: number = this.teamService.totalEquipe(0);
     totalEquipe1: number = this.teamService.totalEquipe(1);
 
-    constructor(private teamService: EquipeService) {}
+    // fin partie
+    pointsPartie!: number;    
+    finPartie: boolean = false;
+
+    constructor(
+        private teamService: EquipeService,
+        private partieService: PartieService) {}
     /**
      * getteurs
      */
@@ -127,8 +134,7 @@ export class ComptePointService {
     setPointsComptes = (points: number) => {
         this.pointsEquipeCompte = 0; // je remets à 0 avant de prendre la dernière valeur tapée dans l'input
 
-        this.pointsEquipeCompte += points;  
-      
+        this.pointsEquipeCompte += points;        
     }
 
     /**
@@ -253,6 +259,7 @@ export class ComptePointService {
         console.log(this.equipeCarre8);
         
     }
+
     /**
      * autoriser l'ajout des points du plie à chaque équipe
      */
@@ -286,8 +293,18 @@ export class ComptePointService {
         this.teamService.newTotalEquipe(0, this.pointsPlieEquipe0);
         this.teamService.newTotalEquipe(1, this.pointsPlieEquipe1);
 
-        this.pointsPlieEquipe0 = 0;
-        this.pointsPlieEquipe1 = 0;
+        this.pointsPartie = this.partieService.pointsPartie
+        console.log("points partie" + this.pointsPartie);
         
+        //Arret de la partie
+        if (this.pointsPartie < this.teamService.totalEquipe(0) || this.pointsPartie < this.teamService.totalEquipe(1)) {
+            this.finPartie = true;
+            console.log("fin partie "+this.finPartie);
+            
+        } else {
+            this.pointsPlieEquipe0 = 0;
+            this.pointsPlieEquipe1 = 0;
+        }
+
     }
 }
