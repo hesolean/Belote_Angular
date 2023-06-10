@@ -69,4 +69,9 @@ export class DefinitionPartieComponent implements OnInit{
   alertFormValues(formGroup: FormGroup) {
     alert(JSON.stringify(formGroup.value, null, 2));
   }
+
+  validerParam(){
+    this.afficheTableau = true;
+    this.afficheDefPlie = true;
+  }
 }

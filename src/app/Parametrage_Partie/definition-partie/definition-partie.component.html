@@ -21,7 +21,7 @@
         />      
     </div>
     <!-- $event va vers la méthode onAddPointTotal du composant ComptePointService-->
-    <app-button [value]="btnValide"></app-button>
+    <app-button [value]="btnValide" (click)="validerParam()"></app-button>
   </form>
   </div>
   <app-recap-points *ngIf="afficheTableau"></app-recap-points>
