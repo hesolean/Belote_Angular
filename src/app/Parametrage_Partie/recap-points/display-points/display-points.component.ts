@@ -13,7 +13,14 @@ export class DisplayPointsComponent implements OnInit{
   equipes: EquipesModel[] = [];
   pointsPliesEquipe: Array<number> = [];
 
-  constructor(private teamService: EquipeService, private comptePoint: ComptePointService){}
+  //boolean de fin de partie
+  finPartie!: boolean;
+
+
+  constructor(
+    private teamService: EquipeService, 
+    private comptePoint: ComptePointService
+    ){}
 
   ngOnInit(): void {
     this.getEquipe();
@@ -24,6 +31,8 @@ export class DisplayPointsComponent implements OnInit{
    */
   getEquipe = () => {
     this.equipes = this.teamService.equipes;
+    this.finPartie = this.comptePoint.finPartie;
+
   }
 
 }

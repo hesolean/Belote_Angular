@@ -22,13 +22,11 @@ export class DefinitionPlieComponent implements OnInit{
   affiche: boolean = false;
 
   // je crée un boolean pour récupérer si je dois afficher les annonces
-  afficheAnnonces!: boolean;
-
-  // j'utilise le shared service
-  inputValue!: number;
+  afficheAnnonces: boolean = false;
 
   // fin de partie
   afficheDefPli: boolean = !this.comptePointService.finPartie;
+  finPartie: boolean = false;
 
   constructor(
     private partieService: PartieService,
@@ -36,7 +34,7 @@ export class DefinitionPlieComponent implements OnInit{
     private comptePointService: ComptePointService) {}
   
   ngOnInit(): void {
-      this.afficheAnnonces = this.partieService.afficheAnnonces;
+      
   }
 
   /**
@@ -50,12 +48,22 @@ export class DefinitionPlieComponent implements OnInit{
       this.affiche = false;
     }    
   }
+
+  /**
+   * change le boolean de l'affichage du composant annonces
+   * @param event checked
+   */
+  onCheckboxChange(event: any) {
+    this.afficheAnnonces = !this.afficheAnnonces;
+  }
+
   /**
    * méthode qui appelle celle de ComptePointService
    * @param e $event du template pour signaler le click
    */
   onAddPointTotal = (e: any) => {
     // appelle la fonction de compte service pour provoquer l'ajout des points
-    this.comptePointService.onAddPointTotal();   
+    this.comptePointService.onAddPointTotal(); 
+    this.finPartie = this.comptePointService.finPartie;  
   }
 }

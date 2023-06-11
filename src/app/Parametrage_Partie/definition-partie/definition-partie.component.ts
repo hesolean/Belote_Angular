@@ -13,7 +13,7 @@ export class DefinitionPartieComponent implements OnInit{
   afficheTableau: boolean = false;
   afficheDefPlie: boolean = false;
 
-  btnValide: string = "Valider les réglages"
+  btnValide: string = "Valider"
 
   // je crée une variable de soumission et de validation pour la création de la réservation
   submitted: boolean = false;
@@ -24,10 +24,8 @@ export class DefinitionPartieComponent implements OnInit{
 
   // formValues pour la soumission
   formValues: FormGroup = this.formBuilder.group({
-    // je crée un champ nom qui est un FormControl, idem pour description
-    pointsPartie: ['', Validators.required],
-    afficheAnnonces: ['', Validators.required]
-  });
+    // je crée un champ pour le FormControl
+    pointsPartie: ['', Validators.required]  });
 
   constructor(
     private formBuilder: FormBuilder,

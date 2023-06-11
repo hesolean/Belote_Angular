@@ -7,13 +7,12 @@ import { Observable } from "rxjs";
 })
 export class PartieService {
     pointsPartie: number = 0;
-
-    afficheAnnonces: boolean = false;
     
     constructor() {}
 
     defPartie(partie: Partie) {
         this.pointsPartie = partie.pointsPartie;
-        this.afficheAnnonces = partie.afficheAnnonces;
+        console.log("pts partie : " + this.pointsPartie );
+        
     }
 }

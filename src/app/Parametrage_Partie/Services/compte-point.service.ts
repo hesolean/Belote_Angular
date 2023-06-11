@@ -40,7 +40,7 @@ export class ComptePointService {
 
     // fin partie
     pointsPartie!: number;    
-    finPartie: boolean = false;
+    finPartie!: boolean;
 
     constructor(
         private teamService: EquipeService,
@@ -297,13 +297,16 @@ export class ComptePointService {
         console.log("points partie" + this.pointsPartie);
         
         //Arret de la partie
-        if (this.pointsPartie < this.teamService.totalEquipe(0) || this.pointsPartie < this.teamService.totalEquipe(1)) {
+        if (this.pointsPartie <= this.teamService.totalEquipe(0) || this.pointsPartie <= this.teamService.totalEquipe(1)) {
             this.finPartie = true;
             console.log("fin partie "+this.finPartie);
             
         } else {
             this.pointsPlieEquipe0 = 0;
             this.pointsPlieEquipe1 = 0;
+            this.finPartie = false;
+            console.log("fin partie "+this.finPartie);
+
         }
 
     }
