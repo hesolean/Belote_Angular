@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PartieService } from '../Services/partie.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -12,6 +12,7 @@ export class DefinitionPartieComponent implements OnInit{
   // options d'affichage
   afficheTableau: boolean = false;
   afficheDefPlie: boolean = false;
+  annonces: boolean = false;
 
   btnValide: string = "Valider"
 
@@ -25,7 +26,9 @@ export class DefinitionPartieComponent implements OnInit{
   // formValues pour la soumission
   formValues: FormGroup = this.formBuilder.group({
     // je crée un champ pour le FormControl
-    pointsPartie: ['', Validators.required]  });
+    pointsPartie: ['', Validators.required],
+    afficheAnnonces: ['', Validators.required]
+    });
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,7 +40,7 @@ export class DefinitionPartieComponent implements OnInit{
       this.submitted=false;
     })
   }
-    
+
   paramPartie(formGroup: FormGroup) {
     // empeche de rafraichir la page au moment de la soumisson
     console.log(JSON.stringify(formGroup.value, null, 2));
@@ -47,19 +50,11 @@ export class DefinitionPartieComponent implements OnInit{
 
     //  je vérifie si le formulaire est valide
     if (formGroup.valid) {
-      // si le formulaire est valide, je passe la variable formValidated à true ce qui me permettra de signaler
-      // à l'utilisateur que le formulaire a bien été validé via un message
-
-      // this.partieService.defPartie(formGroup.value).subscribe(
-      //   (response:any) => {
-      //     this.partieValide=true;
-      //   },
-      //   (error:any) => {
-      //     //throw erreur
-      //     console.log(error);
-      //   }
-      // )
-      this.partieService.defPartie(formGroup.value)
+      
+      this.partieService.defPartie(formGroup.value);
+      this.annonces = formGroup.value.afficheAnnonces;
+      console.log("annonces "+this.annonces);
+      
     }
   }
   
@@ -68,6 +63,9 @@ export class DefinitionPartieComponent implements OnInit{
     alert(JSON.stringify(formGroup.value, null, 2));
   }
 
+  /**
+   * change les booleans pour afficher le tableau des résultats et le paramétrage des plis
+   */
   validerParam(){
     this.afficheTableau = true;
     this.afficheDefPlie = true;

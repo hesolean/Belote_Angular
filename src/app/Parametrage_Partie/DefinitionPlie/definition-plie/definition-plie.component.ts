@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { EquipeService } from '../../Services/team.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { ComptePointService } from '../../Services/compte-point.service';
 import { PartieService } from '../../Services/partie.service';
 
@@ -22,7 +21,9 @@ export class DefinitionPlieComponent implements OnInit{
   affiche: boolean = false;
 
   // je crée un boolean pour récupérer si je dois afficher les annonces
-  afficheAnnonces: boolean = false;
+  
+  @Input()
+  afficheAnnonces!: boolean;
 
   // fin de partie
   afficheDefPli: boolean = !this.comptePointService.finPartie;
@@ -30,11 +31,20 @@ export class DefinitionPlieComponent implements OnInit{
 
   constructor(
     private partieService: PartieService,
-    private teamService: EquipeService, 
     private comptePointService: ComptePointService) {}
   
   ngOnInit(): void {
-      
+    this.getAnnonces();
+
+    }
+
+    /**
+   * Je récupère les informations des annonces
+   */
+  getAnnonces = () => {
+    this.afficheAnnonces = this.partieService.afficheAnnonces;
+    console.log("affiche annonces def plie "+this.afficheAnnonces);
+    
   }
 
   /**
@@ -47,14 +57,6 @@ export class DefinitionPlieComponent implements OnInit{
     } else {
       this.affiche = false;
     }    
-  }
-
-  /**
-   * change le boolean de l'affichage du composant annonces
-   * @param event checked
-   */
-  onCheckboxChange(event: any) {
-    this.afficheAnnonces = !this.afficheAnnonces;
   }
 
   /**
