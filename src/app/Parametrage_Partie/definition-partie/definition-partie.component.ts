@@ -26,8 +26,8 @@ export class DefinitionPartieComponent implements OnInit{
   // formValues pour la soumission
   formValues: FormGroup = this.formBuilder.group({
     // je crée un champ pour le FormControl
-    pointsPartie: ['', Validators.required],
-    afficheAnnonces: ['', Validators.required]
+    pointsPartie: [0, Validators.required],
+    afficheAnnonces: [false, Validators.required]
     });
 
   constructor(

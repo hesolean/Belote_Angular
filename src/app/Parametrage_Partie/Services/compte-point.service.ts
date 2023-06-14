@@ -40,7 +40,6 @@ export class ComptePointService {
     totalEquipe1: number = this.teamService.totalEquipe(1);
 
     // fin partie
-    pointsPartie!: number;    
     finPartie!: boolean;
 
     constructor(
@@ -273,22 +272,14 @@ export class ComptePointService {
      * autoriser l'ajout des points du plie à chaque équipe
      */
     onAddPointTotal = () => {
-        console.log("onAddPoint : preneur "+this.preneur + " couleur "+this.couleurAtout);
-console.log("éq 1 : "+this.teamService.equipes[0].idEquipes+"éq 2 : "+this.teamService.equipes[1].idEquipes);
 
         // je stock l'équipe qui a pris et la couleur de l'atout
         if (this.preneur == this.teamService.equipes[0].idEquipes-1) {
             this.teamService.equipes[0].atoutPris.push(this.couleurAtout);
-            this.teamService.equipes[1].atoutPris.push("");
-            console.log("equipe 0 "+this.teamService.equipes[0]
-             + " couleur eq 0 "+this.teamService.equipes[0].atoutPris);
-
-            
+            this.teamService.equipes[1].atoutPris.push("");            
         } else if (this.preneur == this.teamService.equipes[1].idEquipes-1) {
             this.teamService.equipes[1].atoutPris.push(this.couleurAtout);
             this.teamService.equipes[0].atoutPris.push("");
-            console.log("equipe 1 "+this.teamService.equipes[1]
-             + " couleur eq 1 "+this.teamService.equipes[1].atoutPris);
         }
 
         // j'applique la méthode de points en fonction des coches de la partie capot
@@ -320,10 +311,14 @@ console.log("éq 1 : "+this.teamService.equipes[0].idEquipes+"éq 2 : "+this.tea
         this.teamService.newTotalEquipe(0, this.pointsPlieEquipe0);
         this.teamService.newTotalEquipe(1, this.pointsPlieEquipe1);
 
-        this.pointsPartie = this.partieService.pointsPartie
+        
+        console.log("points partie : "+ this.partieService.pointsPartie
+        + " total eq 1 : " + this.teamService.totalEquipe(0)
+        + " total eq 2 : " + this.teamService.totalEquipe(1));
         
         //Arret de la partie
-        if (this.pointsPartie <= this.teamService.totalEquipe(0) || this.pointsPartie <= this.teamService.totalEquipe(1)) {
+        if (this.partieService.pointsPartie <= this.teamService.totalEquipe(0)
+         || this.partieService.pointsPartie <= this.teamService.totalEquipe(1)) {
             this.finPartie = true;
             console.log("fin partie "+this.finPartie);
 
