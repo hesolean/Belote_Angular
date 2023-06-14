@@ -2,27 +2,28 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import EquipesModel from '../../Models/EquipesModel';
 import { EquipeService } from '../../Services/team.service';
-import { ComptePointService } from '../../Services/compte-point.service';
-
 
 // interface pour définir la liste des éléments à cocher
 export interface Tableau {
   name: any;
   color: ThemePalette;
 }
+
 @Component({
   selector: 'app-der',
   templateUrl: './der.component.html',
   styleUrls: ['./der.component.css']
 })
+
 export class DerComponent implements OnInit{
+
   // je récupère les données de la team dans le tableau d'équipes
   equipes: EquipesModel[] = [];
 
   // je crée un tableau pour renseigner les étiquettes des boutons chip
   availableEquipes! : Tableau[];
 
-  constructor(private teamService: EquipeService, private comptePointService: ComptePointService) {}
+  constructor(private teamService: EquipeService) {}
 
   ngOnInit():void {
     this.equipes = this.teamService.equipes;
@@ -40,13 +41,15 @@ export class DerComponent implements OnInit{
       ] ;
   }  
 
+  // envoie l'évènement vers les composants qui l'utilisent
   @Output()
-  newTeamSelect: EventEmitter<number> = new EventEmitter()
+  newTeamSelect: EventEmitter<number> = new EventEmitter();
+  
   /**
    * méthode qui renvoie l'id de l'équipe sélectionnée par l'utilisateur
    * @param id id équipe sélectionnée
    */
-  teamSelect(id: number): void {
+  handleTeamSelect(id: number): void {
     if (id == null) return;
     this.newTeamSelect.emit(id);
   }

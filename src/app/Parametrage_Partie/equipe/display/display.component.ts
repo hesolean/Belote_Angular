@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import EquipesModel from '../../Models/EquipesModel';
 
 @Component({
@@ -6,8 +6,9 @@ import EquipesModel from '../../Models/EquipesModel';
   templateUrl: './display.component.html',
   styleUrls: ['./display.component.css']
 })
+
 export class DisplayComponent implements OnInit{
-/** pas de bouton delete
+/** pas de bouton delete pour le moment
  *   btnDelete: string = "delete"; */
 
   constructor(){}

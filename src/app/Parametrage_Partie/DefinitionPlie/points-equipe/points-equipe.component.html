@@ -1,7 +1,6 @@
 <div>
     <h2>Point de l'équipe comptée</h2>
-
-    <input class="input" type="number" [(ngModel)]="points" (input)="pointsEquipe()">
-    <app-der (newTeamSelect)="selectedTeam($event)"></app-der>
+    <input class="input" type="number" [(ngModel)]="points" (input)="handlePointsEquipe()">
+    <app-der (newTeamSelect)="handleSelectedTeam($event)"></app-der>
 </div>
 

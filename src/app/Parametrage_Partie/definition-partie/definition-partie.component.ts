@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PartieService } from '../Services/partie.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './definition-partie.component.html',
   styleUrls: ['./definition-partie.component.css']
 })
+
 export class DefinitionPartieComponent implements OnInit{
 
   // options d'affichage
@@ -14,6 +15,7 @@ export class DefinitionPartieComponent implements OnInit{
   afficheDefPlie: boolean = false;
   annonces: boolean = false;
 
+  // nom du bouton
   btnValide: string = "Valider"
 
   // je crée une variable de soumission et de validation pour la création de la réservation
@@ -32,7 +34,8 @@ export class DefinitionPartieComponent implements OnInit{
 
   constructor(
     private formBuilder: FormBuilder,
-    private partieService: PartieService) {}
+    private partieService: PartieService
+    ) {}
 
   ngOnInit( ): void {
     // je réinitialise si l'utilisateur change les champs
@@ -41,14 +44,14 @@ export class DefinitionPartieComponent implements OnInit{
     })
   }
 
-  paramPartie(formGroup: FormGroup) {
+  handleParamPartie(formGroup: FormGroup) {
     // empeche de rafraichir la page au moment de la soumisson
     console.log(JSON.stringify(formGroup.value, null, 2));
 
     // je passe la variable submitted à true pour pouvoir afficher a confirmation à l'écran avec un ngIf
     this.submitted = true;
 
-    //  je vérifie si le formulaire est valide
+    // je vérifie si le formulaire est valide
     if (formGroup.valid) {
       
       this.partieService.defPartie(formGroup.value);
@@ -66,7 +69,7 @@ export class DefinitionPartieComponent implements OnInit{
   /**
    * change les booleans pour afficher le tableau des résultats et le paramétrage des plis
    */
-  validerParam(){
+  handleValiderParam(){
     this.afficheTableau = true;
     this.afficheDefPlie = true;
   }

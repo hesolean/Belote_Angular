@@ -6,6 +6,7 @@ import { ComptePointService } from '../../Services/compte-point.service';
   templateUrl: './dix-der.component.html',
   styleUrls: ['./dix-der.component.css']
 })
+
 export class DixDerComponent implements OnInit{
 
   constructor(private comptePointService: ComptePointService) {}
@@ -16,7 +17,7 @@ export class DixDerComponent implements OnInit{
    * je transmets l'équipe qui va recevoir le 10 de der
    * @param id id équipe
    */
-  selectedTeam(id: number):void {
+  handleSelectedTeam(id: number):void {
     this.comptePointService.setEquipe10Der(id);
   }
 }
