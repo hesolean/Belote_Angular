@@ -10,9 +10,10 @@ ul {
 li {
     padding: 50px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 div {
     text-align: center;
 }
+
