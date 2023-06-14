@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EquipeService } from '../Services/team.service';
 import EquipesModel from '../Models/EquipesModel';
-import { ComptePointService } from '../Services/compte-point.service';
-
 
 @Component({
   selector: 'app-team',
@@ -14,7 +12,7 @@ export class EquipeComponent implements OnInit{
 
   equipes: EquipesModel[] = [];
 
-  constructor(private teamService: EquipeService, private comptePointService: ComptePointService) {}
+  constructor(private teamService: EquipeService) {}
 
   ngOnInit():void {
     this.getEquipe();
@@ -31,7 +29,7 @@ export class EquipeComponent implements OnInit{
    * J'ajoute les équipes au tableau
    * @param e évènement écouté
    */
-  addEquipe = (e: string) => {
+  handleAddEquipe = (e: string) => {
     this.teamService.addEquipe(e);    
   }  
 }

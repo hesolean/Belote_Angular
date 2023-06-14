@@ -1,8 +1,6 @@
 <div class="equipes">
-    <h1><u>Equipes</u></h1>
-    <!-- <app-display [equipes]="equipes" (id)="onChange($event)"></app-display> je n'utilise pas la méthode onChange-->
-    <app-display [equipes]="equipes"></app-display>
-
-    <app-add-team (newTeam)="addEquipe($event)"></app-add-team>
+  <h1><u>Equipes</u></h1>
+  <!-- <app-display [equipes]="equipes" (id)="onChange($event)"></app-display> je n'utilise pas la méthode onChange-->
+  <app-display [equipes]="equipes"></app-display>
+  <app-add-team (newTeam)="handleAddEquipe($event)"></app-add-team>
 </div>
-

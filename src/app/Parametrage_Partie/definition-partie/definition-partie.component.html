@@ -1,9 +1,8 @@
 <div>
   <app-team></app-team>
-
   <div class="defPartie">
     <h1><u>Définition de la partie</u></h1>
-    <form [formGroup]="formValues" (ngSubmit)="paramPartie(formValues)">
+    <form [formGroup]="formValues" (ngSubmit)="handleParamPartie(formValues)">
       <div class="input">
         <label for="points">Points minimum de la partie</label>
         <input id="points" type="number" formControlName="pointsPartie" />
@@ -15,7 +14,7 @@
         <input type="checkbox" id="annonces" formControlName="afficheAnnonces">
     </div>
       <!-- le bouton change les booleans pour l'affichage du tableau de résultat et la définition des plis-->
-      <app-button [value]="btnValide" (click)="validerParam()"></app-button>
+      <app-button [value]="btnValide" (click)="handleValiderParam()"></app-button>
     </form>
   </div>
   <app-recap-points *ngIf="afficheTableau"></app-recap-points>

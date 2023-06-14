@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EquipeService } from '../../Services/team.service';
 import { ComptePointService } from '../../Services/compte-point.service';
 
 @Component({
@@ -7,14 +6,14 @@ import { ComptePointService } from '../../Services/compte-point.service';
   templateUrl: './points-equipe.component.html',
   styleUrls: ['./points-equipe.component.css']
 })
-export class PointsEquipeComponent implements OnInit {
-  points: number = 0;
 
+export class PointsEquipeComponent implements OnInit {
+  
+  // je récupère les points comptés et l'id de l'équipe concernée
+  points: number = 0;
   equipe10Der!: number;
 
-  constructor(
-    private teamService: EquipeService, 
-    private comptePointService: ComptePointService) {}
+  constructor(private comptePointService: ComptePointService) {}
 
   ngOnInit(): void {   
   }
@@ -23,7 +22,7 @@ export class PointsEquipeComponent implements OnInit {
    * je récupère la valeur de l'input du template
    * @param inputValue points comptés par l'utilisateur
    */
-  pointsEquipe(): void {
+  handlePointsEquipe(): void {
     this.comptePointService.setPointsComptes(this.points);
     console.log("points" + this.points);
   }
@@ -32,7 +31,7 @@ export class PointsEquipeComponent implements OnInit {
    * je transmets l'équipe qui va recevoir les points comptés
    * @param id id équipe
    */
-  selectedTeam(id: number):void {
+  handleSelectedTeam(id: number):void {
     this.comptePointService.setEquipePointsComptes(id);
   }
 }

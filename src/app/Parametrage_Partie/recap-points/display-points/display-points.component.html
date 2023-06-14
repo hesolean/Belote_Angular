@@ -2,11 +2,11 @@
   <ul *ngFor="let equipe of equipes">
     <li>
       <u>{{ equipe.nomEquipe }}</u>
-    
-    <div *ngFor="let point of equipe.pointsPlies">{{ point }}</div>
-    <span
-      ><strong>Total : {{ equipe.totalPartie }}</strong></span
-    ></li>
+      <div *ngFor="let point of equipe.pointsPlies">{{ point }}</div>
+      <span
+        ><strong>Total : {{ equipe.totalPartie }}</strong></span
+      >
+    </li>
   </ul>
   <h1><u>Parties</u></h1>
   <ul *ngFor="let equipe of equipes">
