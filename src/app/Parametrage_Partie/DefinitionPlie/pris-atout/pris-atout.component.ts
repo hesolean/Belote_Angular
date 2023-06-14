@@ -8,7 +8,10 @@ import { ComptePointService } from '../../Services/compte-point.service';
   styleUrls: ['./pris-atout.component.css']
 })
 export class PrisAtoutComponent {
+  // récupère les données du template
+  selectedButton!: string;
   preneur!: number;
+
   constructor(private teamService: EquipeService, private comptePointService: ComptePointService) {}
 
   ngOnInit(): void {}
@@ -19,5 +22,6 @@ export class PrisAtoutComponent {
    */
   selectedTeam(id: number):void {
     this.comptePointService.setPreneur(id);
+    this.comptePointService.setCouleurAtout(this.selectedButton);
   }
 }

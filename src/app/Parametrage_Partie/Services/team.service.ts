@@ -8,8 +8,8 @@ export class EquipeService {
     // définition du tableau pour les équipes en s'appuyant sur le model
     private _equipes: EquipesModel[] = [
         // pour l'instant j'incrémente en dur 2 valeurs pour développer
-        new EquipesModel("equipe 1", [], 0),
-        new EquipesModel("equipe 2", [], 0)
+        new EquipesModel("equipe 1", [], [], 0, []),
+        new EquipesModel("equipe 2", [], [], 0, [])
     ]
 
     constructor() {}
@@ -26,7 +26,7 @@ export class EquipeService {
      * @param pseudoEquipe désigne le nom de l'équipe
      */
     addEquipe = (pseudoEquipe: string) => {
-        const equipe = new EquipesModel(pseudoEquipe, [], 0);
+        const equipe = new EquipesModel(pseudoEquipe, [], [], 0, []);
         this._equipes.push(equipe);
     }
 
@@ -43,6 +43,10 @@ export class EquipeService {
     }
 
     newTotalEquipe(index: number, points: number) {
-        this._equipes[index].totalPartie += points;
+        this._equipes[index].totalPartie += points; 
+    }
+
+    newArchivePartie(index: number, points: number) {
+        this._equipes[index].archivesParties.push(points); 
     }
 }

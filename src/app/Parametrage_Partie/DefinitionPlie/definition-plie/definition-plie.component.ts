@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ComptePointService } from '../../Services/compte-point.service';
 import { PartieService } from '../../Services/partie.service';
-
+import { EquipeService } from '../../Services/team.service';
 
 @Component({
   selector: 'app-definition-plie',
@@ -12,6 +12,7 @@ export class DefinitionPlieComponent implements OnInit{
 
   // je donne le nom au bouton
   btnValide: string = "Valider le plie";
+  btnValide2: string = "Enregistrer la partie";
 
   // je récupère l'information capot de mon service ComptePoint
   capot: string = this.comptePointService.capot;
@@ -31,6 +32,7 @@ export class DefinitionPlieComponent implements OnInit{
 
   constructor(
     private partieService: PartieService,
+    private teamService: EquipeService,
     private comptePointService: ComptePointService) {}
   
   ngOnInit(): void {
@@ -67,5 +69,9 @@ export class DefinitionPlieComponent implements OnInit{
     // appelle la fonction de compte service pour provoquer l'ajout des points
     this.comptePointService.onAddPointTotal(); 
     this.finPartie = this.comptePointService.finPartie;  
+  }
+
+  onAddPartie = (e: any) => {
+    this.comptePointService.onArchivesParties();
   }
 }

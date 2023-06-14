@@ -11,15 +11,9 @@ import { ComptePointService } from '../../Services/compte-point.service';
 export class DisplayPointsComponent implements OnInit{
 
   equipes: EquipesModel[] = [];
-  pointsPliesEquipe: Array<number> = [];
-
-  //boolean de fin de partie
-  finPartie!: boolean;
-
-
+  
   constructor(
-    private teamService: EquipeService, 
-    private comptePoint: ComptePointService
+    private teamService: EquipeService
     ){}
 
   ngOnInit(): void {
@@ -31,8 +25,6 @@ export class DisplayPointsComponent implements OnInit{
    */
   getEquipe = () => {
     this.equipes = this.teamService.equipes;
-    this.finPartie = this.comptePoint.finPartie;
-
   }
 
 }

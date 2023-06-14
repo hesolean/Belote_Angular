@@ -11,10 +11,11 @@ export class ComptePointService {
     private _pointsPliesEquipe1: Array<number> = new Array();
 
     // config plie
-    equipes: EquipesModel[] = [new EquipesModel('', [], 0)];
+    equipes: EquipesModel[] = [new EquipesModel('', [], [], 0, [])];
     pointsPlieEquipe0: number = 0;
     pointsPlieEquipe1: number = 0;
     
+    couleurAtout!: string;
     preneur!: number;
     
     capot!: string;
@@ -67,7 +68,15 @@ export class ComptePointService {
      */
     setPreneur = (id: number) => {
         this.preneur = id;
-        }
+    }
+
+    /**
+     * je récupère l'atout
+     * @param couleur atout sélectionné
+     */
+    setCouleurAtout = (couleur: string) => {
+        this.couleurAtout = couleur;
+    }
 
     /**
      *  je récupère le type de capot pour le calcul des points plus tard
@@ -264,6 +273,24 @@ export class ComptePointService {
      * autoriser l'ajout des points du plie à chaque équipe
      */
     onAddPointTotal = () => {
+        console.log("onAddPoint : preneur "+this.preneur + " couleur "+this.couleurAtout);
+console.log("éq 1 : "+this.teamService.equipes[0].idEquipes+"éq 2 : "+this.teamService.equipes[1].idEquipes);
+
+        // je stock l'équipe qui a pris et la couleur de l'atout
+        if (this.preneur == this.teamService.equipes[0].idEquipes-1) {
+            this.teamService.equipes[0].atoutPris.push(this.couleurAtout);
+            this.teamService.equipes[1].atoutPris.push("");
+            console.log("equipe 0 "+this.teamService.equipes[0]
+             + " couleur eq 0 "+this.teamService.equipes[0].atoutPris);
+
+            
+        } else if (this.preneur == this.teamService.equipes[1].idEquipes-1) {
+            this.teamService.equipes[1].atoutPris.push(this.couleurAtout);
+            this.teamService.equipes[0].atoutPris.push("");
+            console.log("equipe 1 "+this.teamService.equipes[1]
+             + " couleur eq 1 "+this.teamService.equipes[1].atoutPris);
+        }
+
         // j'applique la méthode de points en fonction des coches de la partie capot
         if (this.capot == "Capot" || this.capot == "Dedans") {
             this.onAddPointCapot();
@@ -294,13 +321,12 @@ export class ComptePointService {
         this.teamService.newTotalEquipe(1, this.pointsPlieEquipe1);
 
         this.pointsPartie = this.partieService.pointsPartie
-        console.log("points partie" + this.pointsPartie);
         
         //Arret de la partie
         if (this.pointsPartie <= this.teamService.totalEquipe(0) || this.pointsPartie <= this.teamService.totalEquipe(1)) {
             this.finPartie = true;
             console.log("fin partie "+this.finPartie);
-            
+
         } else {
             this.pointsPlieEquipe0 = 0;
             this.pointsPlieEquipe1 = 0;
@@ -308,6 +334,11 @@ export class ComptePointService {
             console.log("fin partie "+this.finPartie);
 
         }
+
+    }
+    onArchivesParties = () => {
+        this.teamService.newArchivePartie(0, this.teamService.totalEquipe(0));
+        this.teamService.newArchivePartie(1, this.teamService.totalEquipe(1));
 
     }
 }

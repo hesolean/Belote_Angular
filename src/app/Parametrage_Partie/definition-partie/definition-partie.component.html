@@ -2,15 +2,15 @@
   <app-team></app-team>
 
   <div class="defPartie">
-    <h1><u>Définition de la partie :</u></h1>
+    <h1><u>Définition de la partie</u></h1>
     <form [formGroup]="formValues" (ngSubmit)="paramPartie(formValues)">
       <div class="input">
-        <label for="points">Points minimum de la partie :</label>
+        <label for="points">Points minimum de la partie</label>
         <input id="points" type="number" formControlName="pointsPartie" />
       </div>
-      <div class="critere">
+      <div class="input">
         <label for="annonces">
-            <h1><u>Annonces</u></h1>
+            Annonces
         </label>
         <input type="checkbox" id="annonces" formControlName="afficheAnnonces">
     </div>

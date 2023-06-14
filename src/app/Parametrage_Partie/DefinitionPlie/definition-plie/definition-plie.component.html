@@ -1,5 +1,5 @@
 <div class="defpli">
-  <h1><u>Définition du pli :</u></h1>
+  <h1><u>Définition du pli</u></h1>
   <div class="critere">
     <app-pris-atout></app-pris-atout>
     <app-capot></app-capot>
@@ -11,12 +11,16 @@
     </ng-container>
   </div>
 
-  <h1><u>Annonces</u></h1>
   <app-annonces *ngIf="afficheAnnonces"></app-annonces>
   <!-- $event va vers la méthode onAddPointTotal du composant ComptePointService-->
   <app-button
     *ngIf="!finPartie"
     [value]="btnValide"
     (click)="onAddPointTotal($event)"
+  ></app-button>
+  <app-button
+    *ngIf="finPartie"
+    [value]="btnValide2"
+    (click)="onAddPartie($event)"
   ></app-button>
 </div>

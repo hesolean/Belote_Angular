@@ -19,6 +19,7 @@ export default class Partie {
     get afficheAnnonces(): boolean {
         return this._afficheAnnonces;
     }
+    
 
     /**
      * setteurs
@@ -29,4 +30,5 @@ export default class Partie {
     set afficheAnnonces(value: boolean) {
         this._afficheAnnonces = value;
     }
+    
 }

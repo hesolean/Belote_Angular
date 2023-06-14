@@ -12,3 +12,7 @@ li {
     display: flex;
     flex-direction: column;
 }
+
+div {
+    text-align: center;
+}
