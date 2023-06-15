@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ComptePointService } from '../../Services/compte-point.service';
-import { PartieService } from '../../Services/partie.service';
-import { EquipeService } from '../../Services/team.service';
+import { ComptePointService } from '../../services/compte-point.service';
+import { PartieService } from '../../services/partie.service';
+import { EquipeService } from '../../services/team.service';
 
 @Component({
   selector: 'app-definition-plie',

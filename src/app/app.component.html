@@ -1,5 +1,7 @@
 <body>
     <!--<app-login></app-login>-->
+    <app-button mat-button [value]="btnValide" (click)="openAddTeam()"></app-button>
+    <app-team *ngIf="equipeComponent"></app-team>
     <app-definition-partie></app-definition-partie>
 
 </body>

@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
-import EquipesModel from '../../Models/EquipesModel';
-import { EquipeService } from '../../Services/team.service';
-import { ComptePointService } from '../../Services/compte-point.service';
+import EquipesModel from '../../models/EquipesModel';
+import { EquipeService } from '../../services/team.service';
+import { ComptePointService } from '../../services/compte-point.service';
 
 
 // interface pour définir la liste des éléments à cocher
