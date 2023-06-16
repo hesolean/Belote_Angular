@@ -14,15 +14,10 @@
     <app-annonces *ngIf="afficheAnnonces"></app-annonces>
     <!-- $event va vers la méthode onAddPointTotal du composant ComptePointService-->
     <app-button
-      *ngIf="!finPartie"
       [value]="btnValide"
       (click)="handleAddPointTotal($event)"
     ></app-button>
-    <app-button
-      *ngIf="finPartie"
-      [value]="btnValide2"
-      (click)="handleAddPartie($event)"
-    ></app-button>
+    
   </div>
 </div>
 

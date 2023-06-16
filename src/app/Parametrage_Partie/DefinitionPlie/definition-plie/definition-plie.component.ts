@@ -27,7 +27,6 @@ export class DefinitionPlieComponent implements OnInit{
 
   // fin de partie
   afficheDefPli: boolean = !this.comptePointService.finPartie;
-  finPartie: boolean = false;
 
   constructor(
     private partieService: PartieService,
@@ -58,7 +57,6 @@ export class DefinitionPlieComponent implements OnInit{
   handleAddPointTotal = (e: any) => {
     // appelle la fonction de compte service pour provoquer l'ajout des points
     this.comptePointService.onAddPointTotal(); 
-    this.finPartie = this.comptePointService.finPartie;
     this.modaleService.setPlieComponent = false;  
   }
 

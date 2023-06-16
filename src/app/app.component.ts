@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ModaleService } from './Parametrage_Partie/services/modale.service';
 import { Subscription } from 'rxjs';
+import { ComptePointService } from './Parametrage_Partie/services/compte-point.service';
 
 @Component({
   selector: 'app-root',
@@ -19,13 +20,18 @@ export class AppComponent {
   afficheTableau: boolean = false;
   afficheDefPlie: boolean = false;
   plieComponent: boolean = false;
+  finPartie: boolean = false;
   
   // je donne le nom au bouton
   btnEquipe: string = "Créer les équipes";
   btnPartie: string = "Définir la partie";
   btnPlie: string = "Nouveau plie";
+  btnEnregistrePartie: string = "Enregistrer la partie";
 
-constructor(private modaleService: ModaleService) {}
+constructor(
+  private modaleService: ModaleService,
+  private comptePointService: ComptePointService
+  ) {}
   
   ngOnInit(){
     this.subscription = this.modaleService.equipeComponent.subscribe(
@@ -57,6 +63,12 @@ constructor(private modaleService: ModaleService) {}
         this.plieComponent = bool;
       }
     )
+
+    this.subscription = this.comptePointService.finPartie.subscribe(
+      (bool:boolean) => {
+        this.finPartie = bool;//j'affecte la nouvelle valeur de boolean captée
+      }
+    )
   }
 
   ngOnDestroy(): void {
@@ -72,5 +84,8 @@ constructor(private modaleService: ModaleService) {}
   }
   openAddPlie = () => {
     this.plieComponent = true;
+  }
+  enregistrePartie = () => {
+    this.comptePointService.onArchivesParties();
   }
 }
