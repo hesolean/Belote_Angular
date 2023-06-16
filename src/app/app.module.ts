@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 // Les composants
@@ -27,6 +31,7 @@ import { DixDerComponent } from './Parametrage_Partie/DefinitionPlie/dix-der/dix
 import { AnnoncesComponent } from './Parametrage_Partie/DefinitionPlie/annonces/annonces.component';
 import { RecapPointsComponent } from './Parametrage_Partie/recap-points/recap-points.component';
 import { DisplayPointsComponent } from './Parametrage_Partie/recap-points/display-points/display-points.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,7 @@ import { DisplayPointsComponent } from './Parametrage_Partie/recap-points/displa
     AnnoncesComponent,
     DisplayPointsComponent,
     RecapPointsComponent
-    ],
+      ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -57,7 +62,10 @@ import { DisplayPointsComponent } from './Parametrage_Partie/recap-points/displa
     MatChipsModule,
     FormsModule,
     ReactiveFormsModule,
-    MatCheckboxModule    
+    MatCheckboxModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule   
   ],
   providers: [
   ],
