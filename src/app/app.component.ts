@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ComptePointService } from './Parametrage_Partie/services/compte-point.service';
+import { Component } from '@angular/core';
 import { ModaleService } from './Parametrage_Partie/services/modale.service';
 import { Subscription } from 'rxjs';
 
@@ -14,19 +13,41 @@ export class AppComponent {
 
   subscription!: Subscription;
 
+  // bouleans d'ouverture et fermeture des modales
   equipeComponent: boolean = false;
+  partieComponent: boolean = false;
+  afficheTableau: boolean = false;
+  afficheDefPlie: boolean = false;
+  annonces: boolean = false;
   
   // je donne le nom au bouton
-  btnValide: string = "Créer les équipes";
+  btnEquipe: string = "Créer les équipes";
+  btnPartie: string = "Définir la partie";
 
-constructor(
-    private comptePointsService: ComptePointService,
-    private modaleService: ModaleService) {}
+constructor(private modaleService: ModaleService) {}
   
   ngOnInit(){
     this.subscription = this.modaleService.equipeComponent.subscribe(
       (bool:boolean) => {
-        this.equipeComponent = bool;//j'affecte la nouvelle valeur de bbolean captée
+        this.equipeComponent = bool;//j'affecte la nouvelle valeur de boolean captée
+      }
+    )
+
+    this.subscription = this.modaleService.partieComponent.subscribe(
+      (bool:boolean) => {
+        this.partieComponent = bool;//j'affecte la nouvelle valeur de boolean captée
+      }
+    )
+
+    this.subscription = this.modaleService.afficheDefPlie.subscribe(
+      (bool:boolean) => {
+        this.afficheDefPlie = bool;//j'affecte la nouvelle valeur de boolean captée
+      }
+    )
+
+    this.subscription = this.modaleService.afficheTableau.subscribe(
+      (bool:boolean) => {
+        this.afficheTableau = bool;//j'affecte la nouvelle valeur de boolean captée
       }
     )
   }
@@ -35,7 +56,11 @@ constructor(
   this.subscription.unsubscribe();
   }
 
+  // affichage des modales
   openAddTeam = () => {
-  this.equipeComponent = true;  
+    this.equipeComponent = true;  
+  }
+  openAddPartie = () => {
+    this.partieComponent = true;
   }
 }

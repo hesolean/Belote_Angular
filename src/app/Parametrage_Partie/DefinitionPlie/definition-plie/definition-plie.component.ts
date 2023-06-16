@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ComptePointService } from '../../services/compte-point.service';
 import { PartieService } from '../../services/partie.service';
-import { EquipeService } from '../../services/team.service';
 
 @Component({
   selector: 'app-definition-plie',
@@ -32,7 +31,6 @@ export class DefinitionPlieComponent implements OnInit{
 
   constructor(
     private partieService: PartieService,
-    private teamService: EquipeService,
     private comptePointService: ComptePointService
     ) {}
   

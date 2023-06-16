@@ -1,4 +1,4 @@
-<div>
+<div class="total">
   <div class="defPartie">
     <h1><u>Définition de la partie</u></h1>
     <form [formGroup]="formValues" (ngSubmit)="handleParamPartie(formValues)">
@@ -15,7 +15,10 @@
       <!-- le bouton change les booleans pour l'affichage du tableau de résultat et la définition des plis-->
       <app-button [value]="btnValide" (click)="handleValiderParam()"></app-button>
     </form>
+    <button
+      mat-icon-button style="color: red; font-size: 10px;" 
+      (click)="handleClose()">
+        <mat-icon>close</mat-icon>
+      </button>
   </div>
-  <app-recap-points *ngIf="afficheTableau"></app-recap-points>
 </div>
-<app-definition-plie *ngIf="afficheDefPlie" [afficheAnnonces]="annonces"></app-definition-plie>
