@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import EquipesModel from "../models/EquipesModel";
 import { EquipeService } from "./team.service";
 import { PartieService } from "./partie.service";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -40,7 +41,8 @@ export class ComptePointService {
     totalEquipe1: number = this.teamService.totalEquipe(1);
 
     // fin partie
-    finPartie!: boolean;
+    finPartie = new BehaviorSubject<boolean>(false);
+    
 
     constructor(
         private teamService: EquipeService,
@@ -53,6 +55,12 @@ export class ComptePointService {
     }
     get pointsPliesEquipe1(): Array<number> {
         return this._pointsPliesEquipe1
+    }
+    get getFinPartie(): BehaviorSubject<boolean> {
+        return this.finPartie;
+    }
+    set setFinPartie(value: boolean) {
+        this.finPartie.next(value);
     }
     /**
    * Je récupère les informations des équipes
@@ -317,18 +325,17 @@ export class ComptePointService {
         //Arret de la partie
         if (this.partieService.pointsPartie <= this.teamService.totalEquipe(0)
          || this.partieService.pointsPartie <= this.teamService.totalEquipe(1)) {
-            this.finPartie = true;
-            console.log("fin partie "+this.finPartie);
+            this.finPartie.next(true); 
+            console.log("on add points" +this.finPartie);
+            
 
         } else {
             this.pointsPlieEquipe0 = 0;
             this.pointsPlieEquipe1 = 0;
-            this.finPartie = false;
-            console.log("fin partie "+this.finPartie);
-
         }
 
     }
+
     onArchivesParties = () => {
         this.teamService.newArchivePartie(0, this.teamService.totalEquipe(0));
         this.teamService.newArchivePartie(1, this.teamService.totalEquipe(1));
