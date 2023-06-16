@@ -1,6 +1,6 @@
-import { Component, OnInit,Input } from '@angular/core';
-import EquipesModel from '../../Models/EquipesModel';
-import { EquipeService } from '../../Services/team.service';
+import { Component, OnInit } from '@angular/core';
+import EquipesModel from '../../models/EquipesModel';
+import { EquipeService } from '../../services/team.service';
 
 @Component({
   selector: 'app-display-points',

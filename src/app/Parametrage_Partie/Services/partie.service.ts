@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
-import Partie from "../Models/PartieModel";
-import { Observable } from "rxjs";
+import Partie from "../models/PartieModel";
 
 @Injectable({
     providedIn: 'root'

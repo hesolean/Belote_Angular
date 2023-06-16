@@ -18,7 +18,8 @@ export class AddEquipeComponent implements OnInit{
   newTeam: EventEmitter<string> = new EventEmitter()
 
   // méthode pour ajouter un élément dans la liste
-  handleAdd(e: HTMLInputElement) {
+
+  handleAddEquipe(e: HTMLInputElement) {
     const data = e.value;
 
     if (data == "") return;

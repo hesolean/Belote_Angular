@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { ComptePointService } from './Parametrage_Partie/Services/compte-point.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ComptePointService } from './Parametrage_Partie/services/compte-point.service';
+import { ModaleService } from './Parametrage_Partie/services/modale.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +11,31 @@ import { ComptePointService } from './Parametrage_Partie/Services/compte-point.s
 export class AppComponent {
    
   title = 'belote_angular';
-  
-  // option affichage bouton
-  afficheBouton: boolean = this.comptePointsService.finPartie;
+
+  subscription!: Subscription;
+
+  equipeComponent: boolean = false;
   
   // je donne le nom au bouton
-  btnValide: string = "Enregistrer la partie";
+  btnValide: string = "Créer les équipes";
 
-  constructor(private comptePointsService: ComptePointService) {}
+constructor(
+    private comptePointsService: ComptePointService,
+    private modaleService: ModaleService) {}
+  
+  ngOnInit(){
+    this.subscription = this.modaleService.equipeComponent.subscribe(
+      (bool:boolean) => {
+        this.equipeComponent = bool;//j'affecte la nouvelle valeur de bbolean captée
+      }
+    )
+  }
+
+  ngOnDestroy(): void {
+  this.subscription.unsubscribe();
+  }
+
+  openAddTeam = () => {
+  this.equipeComponent = true;  
+  }
 }
