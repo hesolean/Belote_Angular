@@ -1,16 +1,12 @@
 import { NgModule } from '@angular/core';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatDialogModule } from '@angular/material/dialog';
-
+import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 // Les composants
@@ -51,7 +47,7 @@ import { MatIconModule } from '@angular/material/icon';
     AnnoncesComponent,
     DisplayPointsComponent,
     RecapPointsComponent
-      ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -63,8 +59,6 @@ import { MatIconModule } from '@angular/material/icon';
     FormsModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    MatDialogModule,
-    MatButtonModule,
     MatIconModule   
   ],
   providers: [

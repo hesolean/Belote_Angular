@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EquipeService } from '../../services/team.service';
-import { ComptePointService } from '../../services/compte-point.service';
+import { ComptePointService } from '../../Services/compte-point.service';
 
 
 @Component({

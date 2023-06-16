@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ComptePointService } from '../../services/compte-point.service';
+import { ComptePointService } from '../../Services/compte-point.service';
 
 @Component({
   selector: 'app-dix-der',
