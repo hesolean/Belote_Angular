@@ -1,12 +1,11 @@
 <div class="total">
   <div class="defPartie">
     <h1><u>Définition de la partie</u></h1>
-    <form [formGroup]="formValues" (ngSubmit)="handleParamPartie(formValues)">
       <div class="input">
         <label for="points">Points minimum de la partie</label>
-        <input id="points" type="number" formControlName="pointsPartie" />
+        <input id="points" type="number" [(ngModel)]="ptsFinPartie" 
+        (ngModelChange)="handlePtsFinPartie()">
       </div>
-    </form>
       <div class="input">
         <label for="annonces">
             Annonces
