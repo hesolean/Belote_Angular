@@ -1,3 +1,19 @@
+.global {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.equipes {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    color: darkgreen;
+    background-color: lightgreen;    
+    border-radius: 15px;
+    border: 5px double darkgreen;
+    margin-bottom: 2rem;
+} 
+
 ul {
     margin-left: 0;
     padding-left: 0;
