@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ComptePointService } from '../../Services/compte-point.service';
+import { ComptePointService } from '../../services/compte-point.service';
 
 @Component({
   selector: 'app-pris-atout',

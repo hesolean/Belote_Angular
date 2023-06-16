@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { PartieService } from '../Services/partie.service';
-import { ComptePointService } from '../Services/compte-point.service';
+import { PartieService } from '../services/partie.service';
+import { ComptePointService } from '../services/compte-point.service';
 
 @Component({
   selector: 'app-recap-points',

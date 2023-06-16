@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import EquipesModel from '../../Models/EquipesModel';
+import EquipesModel from '../../models/EquipesModel';
 
 @Component({
   selector: 'app-display',

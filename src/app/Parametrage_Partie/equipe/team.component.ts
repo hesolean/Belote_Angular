@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EquipeService } from '../services/team.service';
 import EquipesModel from '../models/EquipesModel';
-import { ComptePointService } from '../Services/compte-point.service';
 import { ModaleService } from '../services/modale.service';
 import { Subscription } from 'rxjs';
 
@@ -24,8 +23,17 @@ export class EquipeComponent implements OnInit{
 
   ngOnInit():void {
     this.getEquipe();
+    this.subscription = this.modaleService.equipeComponent.subscribe(
+      (bool:boolean) => {
+        this.equipeComponent = bool;//j'affecte la nouvelle valeur de bbolean captée
+      }
+    )
   }
 
+  ngOnDestroy(): void {
+  this.subscription.unsubscribe();
+  }
+  
   /**
    * Je récupère les informations des équipes
    */

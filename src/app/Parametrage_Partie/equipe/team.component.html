@@ -1,15 +1,15 @@
-<div class="equipes">
-    <h1><u>Equipes</u></h1>
-    <!-- <app-display [equipes]="equipes" (id)="onChange($event)"></app-display> je n'utilise pas la méthode onChange-->
-    <app-display [equipes]="equipes"></app-display>
+<div class="total">
+  <div class="equipes">
+      <h1><u>Equipes</u></h1>
+      <!-- <app-display [equipes]="equipes" (id)="onChange($event)"></app-display> je n'utilise pas la méthode onChange-->
+      <app-display [equipes]="equipes"></app-display>
+      <app-add-team (newTeam)="handleAddEquipe($event)"></app-add-team>
 
-    <app-add-team (newTeam)="handleAddEquipe($event)"></app-add-team>
-
-            <button
-            mat-icon-button style="color: red; font-size: 10px;" 
-            (click)="handleClose()">
-              <mat-icon>close</mat-icon>
-            </button>
+      <button
+      mat-icon-button style="color: red; font-size: 10px;" 
+      (click)="handleClose()">
+        <mat-icon>close</mat-icon>
+      </button>
 
 </div>
-
+</div>

@@ -1,6 +1,6 @@
 
 import { Component, Input, OnInit } from '@angular/core';
-import { PartieService } from '../Services/partie.service';
+import { PartieService } from '../services/partie.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
