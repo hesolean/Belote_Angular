@@ -6,6 +6,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent {
   // je donne un nom à mon bouton
   btnValide: string = "Valider";
@@ -25,7 +26,7 @@ export class LoginComponent {
     constructor(private formBuilder: FormBuilder) { };
   
     // je crée une méthode onSubmit qui sera appelée lorsque le formulaire sera soumis
-    onSubmit() {
+    handleSubmit() {
       // je passe la variable submitted à true
       this.submitted = true;
       //  je vérifie si le formulaire est valide

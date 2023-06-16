@@ -5,18 +5,20 @@ import { Component, EventEmitter, Output, OnInit } from '@angular/core';
   templateUrl: './add-team.component.html',
   styleUrls: ['./add-team.component.css']
 })
+
 export class AddEquipeComponent implements OnInit{
-  // constructeur vide et initialisation du composant
+
   constructor(){}
   ngOnInit():void {}
 
   // décorateur pour récupérer un élément
   // depuis l'input du template 
-  //vers la méthode addEquipe du composant team en passant par les services
+  // vers la méthode addEquipe du composant team en passant par les services
   @Output()
   newTeam: EventEmitter<string> = new EventEmitter()
 
   // méthode pour ajouter un élément dans la liste
+
   handleAddEquipe(e: HTMLInputElement) {
     const data = e.value;
 

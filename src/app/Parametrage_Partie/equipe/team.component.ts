@@ -4,7 +4,6 @@ import { ModaleService } from '../services/modale.service';
 import { EquipeService } from '../services/team.service';
 import { Subscription } from 'rxjs';
 
-
 @Component({
   selector: 'app-team',
   templateUrl: './team.component.html',
@@ -16,7 +15,6 @@ export class EquipeComponent implements OnInit{
   equipes: EquipesModel[] = [];
   subscription!: Subscription;
   equipeComponent: boolean = true;
-
   
   constructor(
     private teamService: EquipeService,
@@ -45,7 +43,7 @@ export class EquipeComponent implements OnInit{
    * J'ajoute les équipes au tableau
    * @param e évènement écouté
    */
-  addEquipe = (e: string) => {
+  handleAddEquipe = (e: string) => {
     this.teamService.addEquipe(e);    
   }  
 

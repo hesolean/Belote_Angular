@@ -1,12 +1,17 @@
 <div>
-    <h2>Atout choisit par le preneur</h2>
+  <h2>Atout choisit par le preneur</h2>
 
-    <mat-button-toggle-group class="toggle group" name="atout" aria-label="Atout" [(ngModel)]="selectedButton">
-        <mat-button-toggle value="coeur"> Coeur </mat-button-toggle>
-        <mat-button-toggle value="carreau"> Carreau </mat-button-toggle>
-        <mat-button-toggle value="pique"> Pique </mat-button-toggle>
-        <mat-button-toggle value="trefle"> Trèfle </mat-button-toggle>
-    </mat-button-toggle-group>
+  <mat-button-toggle-group
+    class="toggle group"
+    name="atout"
+    aria-label="Atout"
+    [(ngModel)]="selectedButton"
+  >
+    <mat-button-toggle value="coeur"> Coeur </mat-button-toggle>
+    <mat-button-toggle value="carreau"> Carreau </mat-button-toggle>
+    <mat-button-toggle value="pique"> Pique </mat-button-toggle>
+    <mat-button-toggle value="trefle"> Trèfle </mat-button-toggle>
+  </mat-button-toggle-group>
 
-    <app-der (newTeamSelect)="selectedTeam($event)"></app-der>
+  <app-der (newTeamSelect)="handleSelectedTeam($event)"></app-der>
 </div>

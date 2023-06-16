@@ -12,9 +12,7 @@ export class DisplayPointsComponent implements OnInit{
 
   equipes: EquipesModel[] = [];
   
-  constructor(
-    private teamService: EquipeService
-    ){}
+  constructor(private teamService: EquipeService){}
 
   ngOnInit(): void {
     this.getEquipe();
@@ -26,5 +24,4 @@ export class DisplayPointsComponent implements OnInit{
   getEquipe = () => {
     this.equipes = this.teamService.equipes;
   }
-
 }

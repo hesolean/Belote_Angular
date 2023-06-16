@@ -3,7 +3,7 @@
     <!-- je crée un formulaire avec un formGroup qui est égal à la variable formValues du fichier form.component.ts -->
      <!-- je crée un écouteur d'évènement sur la soumission du formulaire avec (ngSubmit) -->
      <!-- lorsque le formulaire est soumis, je lance la méthode onSubmit() du fichier form.component.ts -->
-    <form [formGroup]="formValues" (ngSubmit)="onSubmit()">
+    <form [formGroup]="formValues" (ngSubmit)="handleSubmit()">
       <h2>Connexion</h2>
       <div class="element">
         <label  for="email">Email</label>

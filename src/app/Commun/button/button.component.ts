@@ -21,7 +21,7 @@ export class ButtonComponent implements OnInit{
   /**
    * écoute l'évènement du composant qui utilise le bouton pour adapter le nom du bouton
    */
-  action = () => {
+  handleAction = () => {
     this.event.emit();
   }
 }

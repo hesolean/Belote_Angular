@@ -2,18 +2,17 @@
 <div class="annonces">
     <div class="annonce">
         <h2>Belote et re !!</h2>
-        <app-der (newTeamSelect)="selectedTeamBelote($event)"></app-der>
+        <app-der (newTeamSelect)="handleSelectedTeamBelote($event)"></app-der>
     </div>
-        
     <div  *ngFor = "let annonce of availableAnnonces; let i=index">    
         <div class="annonce">
             <h2>{{annonce.name}}</h2>
-            <app-der (newTeamSelect)="selectedTeamsAnnonces(i, $event)"></app-der>
+            <app-der (newTeamSelect)="handleSelectedTeamsAnnonces(i, $event)"></app-der>
         </div>   
     </div>
     <div class="annonce">
         <h2>Carré de 8</h2>
-        <input type="checkbox" [(ngModel)]="carre8Checked" (ngModelChange)="carre8()">
+        <input type="checkbox" [(ngModel)]="carre8Checked" (ngModelChange)="handleCarre8()">
         Attention j'annule les annonces ...
     </div>
 </div>

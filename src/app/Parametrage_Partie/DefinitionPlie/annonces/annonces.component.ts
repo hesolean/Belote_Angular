@@ -9,13 +9,16 @@ import { ComptePointService } from '../../services/compte-point.service';
   templateUrl: './annonces.component.html',
   styleUrls: ['./annonces.component.css']
 })
+
 export class AnnoncesComponent {
+
   // je récupère les données dans le tableau d'équipes
   equipes: EquipesModel[] = [];
   
   // je crée un tableau pour renseigner les étiquettes des boutons chip
   availableAnnonces! : Tableau[];
 
+  // boolean propre au carré de 8
   carre8Checked!: boolean;
 
   constructor(private teamService: EquipeService, private comptePointService: ComptePointService) {}
@@ -54,12 +57,14 @@ export class AnnoncesComponent {
   }
   
   /**
-   * je transmets les équipes qui vont recevoir les points d'annonces
+   * je récupère du template l'équipe belote
    * @param id id équipe
    */
-  selectedTeamBelote(id: number):void {
+  handleSelectedTeamBelote(id: number):void {
     this.comptePointService.setEquipeBelote(id);
   }
+
+  // méthodes pour attribuer les équipes des différences annonces hors belote et carré de 8
   selectedTeamTierce(id: number):void {
     this.comptePointService.setEquipeTierce(id);
   }
@@ -79,7 +84,12 @@ export class AnnoncesComponent {
     this.comptePointService.setEquipeCarreAutres(id);
   }
 
-  selectedTeamsAnnonces(index: number,id: number): void {    
+  /**
+   * en fonction de l'annonce, je concerve le ou les équipes qui ont des annonces
+   * @param index de la liste des annonces
+   * @param id de l'équipe sélectionnée
+   */
+  handleSelectedTeamsAnnonces(index: number,id: number): void {    
     if (index == 0) {
       this.selectedTeamTierce(id);      
     } else if (index == 1) {
@@ -95,7 +105,10 @@ export class AnnoncesComponent {
     }
   }
 
-  carre8(): void {
+  /**
+   * méthode propre au carré de 8 qui annule toutes les annonces
+   */
+  handleCarre8(): void {
     this.comptePointService.onAddCarre8(this.carre8Checked);
   }
 }

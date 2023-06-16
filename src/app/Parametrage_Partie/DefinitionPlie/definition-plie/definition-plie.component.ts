@@ -8,6 +8,7 @@ import { EquipeService } from '../../services/team.service';
   templateUrl: './definition-plie.component.html',
   styleUrls: ['./definition-plie.component.css']
 })
+
 export class DefinitionPlieComponent implements OnInit{
 
   // je donne le nom au bouton
@@ -22,7 +23,6 @@ export class DefinitionPlieComponent implements OnInit{
   affiche: boolean = false;
 
   // je crée un boolean pour récupérer si je dois afficher les annonces
-  
   @Input()
   afficheAnnonces!: boolean;
 
@@ -33,20 +33,19 @@ export class DefinitionPlieComponent implements OnInit{
   constructor(
     private partieService: PartieService,
     private teamService: EquipeService,
-    private comptePointService: ComptePointService) {}
+    private comptePointService: ComptePointService
+    ) {}
   
   ngOnInit(): void {
     this.getAnnonces();
-
     }
 
-    /**
+  /**
    * Je récupère les informations des annonces
    */
   getAnnonces = () => {
     this.afficheAnnonces = this.partieService.afficheAnnonces;
-    console.log("affiche annonces def plie "+this.afficheAnnonces);
-    
+    console.log("affiche annonces def plie "+this.afficheAnnonces);    
   }
 
   /**
@@ -65,13 +64,17 @@ export class DefinitionPlieComponent implements OnInit{
    * méthode qui appelle celle de ComptePointService
    * @param e $event du template pour signaler le click
    */
-  onAddPointTotal = (e: any) => {
+  handleAddPointTotal = (e: any) => {
     // appelle la fonction de compte service pour provoquer l'ajout des points
     this.comptePointService.onAddPointTotal(); 
     this.finPartie = this.comptePointService.finPartie;  
   }
 
-  onAddPartie = (e: any) => {
+  /**
+   * lance l'enregistrement des totaux de la partie
+   * @param e event
+   */
+  handleAddPartie = (e: any) => {
     this.comptePointService.onArchivesParties();
   }
 }

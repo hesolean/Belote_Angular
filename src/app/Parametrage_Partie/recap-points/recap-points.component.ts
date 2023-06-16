@@ -7,6 +7,6 @@ import { ComptePointService } from '../services/compte-point.service';
   templateUrl: './recap-points.component.html',
   styleUrls: ['./recap-points.component.css']
 })
-export class RecapPointsComponent{
-  
+
+export class RecapPointsComponent{  
 }
