@@ -263,9 +263,7 @@ export class ComptePointService {
         }        
     }
     onAddCarre8 = (carre8Checked: boolean) => {
-        this.equipeCarre8 = carre8Checked;
-        console.log(this.equipeCarre8);
-        
+        this.equipeCarre8 = carre8Checked;        
     }
 
     /**
