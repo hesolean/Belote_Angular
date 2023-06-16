@@ -30,5 +30,4 @@ export default class Partie {
     set afficheAnnonces(value: boolean) {
         this._afficheAnnonces = value;
     }
-    
 }

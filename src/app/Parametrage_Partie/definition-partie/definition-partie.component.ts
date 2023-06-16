@@ -17,7 +17,7 @@ export class DefinitionPartieComponent implements OnInit, OnDestroy{
   subscription!: Subscription;
   afficheTableau: boolean = false;
   afficheDefPlie: boolean = false;
-  annonces: boolean = false;
+  afficheAnnonces: boolean = false;
 
   // nom du bouton
   btnValide: string = "Valider"
@@ -32,8 +32,7 @@ export class DefinitionPartieComponent implements OnInit, OnDestroy{
   // formValues pour la soumission
   formValues: FormGroup = this.formBuilder.group({
     // je crée un champ pour le FormControl
-    pointsPartie: [0, Validators.required],
-    afficheAnnonces: [false, Validators.required]
+    pointsPartie: [0, Validators.required]
     });
 
   constructor(
@@ -56,7 +55,7 @@ export class DefinitionPartieComponent implements OnInit, OnDestroy{
 
     this.subscription = this.modaleService.afficheDefPlie.subscribe(
       (bool:boolean) => {
-        this.afficheDefPlie = bool;//j'affecte la nouvelle valeur de bbolean captée
+        this.afficheDefPlie = bool;
       }
     )
   }
@@ -74,11 +73,7 @@ export class DefinitionPartieComponent implements OnInit, OnDestroy{
 
     // je vérifie si le formulaire est valide
     if (formGroup.valid) {
-      
       this.partieService.defPartie(formGroup.value);
-      this.annonces = formGroup.value.afficheAnnonces;
-      console.log("annonces "+this.annonces);
-      
     }
   }
   
@@ -88,13 +83,15 @@ export class DefinitionPartieComponent implements OnInit, OnDestroy{
   }
 
   /**
-   * change les booleans pour afficher le tableau des résultats et le paramétrage des plis
+   * change les booleans pour afficher le tableau des résultats
    */
   handleValiderParam(){
     this.modaleService.setAfficheTableau = true;
-    this.modaleService.setAfficheDefPlie = true;
+    this.modaleService.setAfficheDefPlie = true;      
   }
-
+  handleAfficheAnnonces = () => {
+    this.partieService.onAfficheAnnonces(this.afficheAnnonces);
+  }
   handleClose = () => {
     this.modaleService.setPartieComponent = false;
   }

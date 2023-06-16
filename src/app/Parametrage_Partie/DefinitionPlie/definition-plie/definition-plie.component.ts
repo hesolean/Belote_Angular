@@ -22,7 +22,6 @@ export class DefinitionPlieComponent implements OnInit{
   affiche: boolean = false;
 
   // je crée un boolean pour récupérer si je dois afficher les annonces
-  @Input()
   afficheAnnonces!: boolean;
 
   // fin de partie
@@ -35,16 +34,8 @@ export class DefinitionPlieComponent implements OnInit{
     ) {}
   
   ngOnInit(): void {
-    this.getAnnonces();
-    }
-
-  /**
-   * Je récupère les informations des annonces
-   */
-  getAnnonces = () => {
     this.afficheAnnonces = this.partieService.afficheAnnonces;
-    console.log("affiche annonces def plie "+this.afficheAnnonces);    
-  }
+    }
 
   /**
    * je définis le boolean affiche en fonction du type de capot

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ModaleService } from './Parametrage_Partie/services/modale.service';
 import { Subscription } from 'rxjs';
+import { PartieService } from './Parametrage_Partie/services/partie.service';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,6 @@ export class AppComponent {
   partieComponent: boolean = false;
   afficheTableau: boolean = false;
   afficheDefPlie: boolean = false;
-  annonces: boolean = false;
   
   // je donne le nom au bouton
   btnEquipe: string = "Créer les équipes";
