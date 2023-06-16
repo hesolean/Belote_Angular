@@ -6,14 +6,19 @@ import Partie from "../models/PartieModel";
 })
 export class PartieService {
     pointsPartie: number = 0;
-    afficheAnnonces!: boolean;
+    afficheAnnonces: boolean = false;
     
     constructor() {}
 
     defPartie(partie: Partie) {
         this.pointsPartie = partie.pointsPartie;
         console.log("pts partie : " + this.pointsPartie );
-        this.afficheAnnonces = partie.afficheAnnonces;
-        console.log("affiche annonces "+this.afficheAnnonces);
+        
+    }
+
+    onAfficheAnnonces = (afficheAnnonces: boolean) => {
+        this.afficheAnnonces = afficheAnnonces;
+        console.log("service " + this.afficheAnnonces);
+        
     }
 }

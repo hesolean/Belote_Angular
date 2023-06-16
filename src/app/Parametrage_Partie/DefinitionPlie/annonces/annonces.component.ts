@@ -21,7 +21,10 @@ export class AnnoncesComponent {
   // boolean propre au carré de 8
   carre8Checked!: boolean;
 
-  constructor(private teamService: EquipeService, private comptePointService: ComptePointService) {}
+  constructor(
+    private teamService: EquipeService,
+    private comptePointService: ComptePointService
+    ) {}
 
   ngOnInit():void {
     // je lie le service au composant

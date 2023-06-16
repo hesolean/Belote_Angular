@@ -6,15 +6,19 @@
         <label for="points">Points minimum de la partie</label>
         <input id="points" type="number" formControlName="pointsPartie" />
       </div>
+    </form>
       <div class="input">
         <label for="annonces">
             Annonces
         </label>
-        <input type="checkbox" id="annonces" formControlName="afficheAnnonces">
+        <input type="checkbox" id="annonces" 
+        [(ngModel)]="afficheAnnonces" 
+        (ngModelChange)="handleAfficheAnnonces()">
     </div>
+  
       <!-- le bouton change les booleans pour l'affichage du tableau de résultat et la définition des plis-->
       <app-button [value]="btnValide" (click)="handleValiderParam()"></app-button>
-    </form>
+    
     <button
       mat-icon-button style="color: red; font-size: 10px;" 
       (click)="handleClose()">
