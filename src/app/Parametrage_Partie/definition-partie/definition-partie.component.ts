@@ -1,7 +1,9 @@
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { PartieService } from '../services/partie.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ModaleService } from '../services/modale.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-definition-partie',
@@ -9,9 +11,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./definition-partie.component.css']
 })
 
-export class DefinitionPartieComponent implements OnInit{
+export class DefinitionPartieComponent implements OnInit, OnDestroy{
 
   // options d'affichage
+  subscription!: Subscription;
   afficheTableau: boolean = false;
   afficheDefPlie: boolean = false;
   annonces: boolean = false;
@@ -35,7 +38,8 @@ export class DefinitionPartieComponent implements OnInit{
 
   constructor(
     private formBuilder: FormBuilder,
-    private partieService: PartieService
+    private partieService: PartieService,
+    private modaleService: ModaleService
     ) {}
 
   ngOnInit( ): void {
@@ -43,7 +47,23 @@ export class DefinitionPartieComponent implements OnInit{
     this.formValues.valueChanges.subscribe(()=> {
       this.submitted=false;
     })
+
+    this.subscription = this.modaleService.afficheTableau.subscribe(
+      (bool:boolean) => {
+        this.afficheTableau = bool;//j'affecte la nouvelle valeur de bbolean captée
+      }
+    )
+
+    this.subscription = this.modaleService.afficheDefPlie.subscribe(
+      (bool:boolean) => {
+        this.afficheDefPlie = bool;//j'affecte la nouvelle valeur de bbolean captée
+      }
+    )
   }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+    }
 
   handleParamPartie(formGroup: FormGroup) {
     // empeche de rafraichir la page au moment de la soumisson
@@ -71,7 +91,11 @@ export class DefinitionPartieComponent implements OnInit{
    * change les booleans pour afficher le tableau des résultats et le paramétrage des plis
    */
   handleValiderParam(){
-    this.afficheTableau = true;
-    this.afficheDefPlie = true;
+    this.modaleService.setAfficheTableau = true;
+    this.modaleService.setAfficheDefPlie = true;
+  }
+
+  handleClose = () => {
+    this.modaleService.setPartieComponent = false;
   }
 }
