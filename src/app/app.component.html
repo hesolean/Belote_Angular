@@ -1,10 +1,11 @@
     <!--<app-login></app-login>-->
+<div class="button">
     <app-button mat-button [value]="btnEquipe" (click)="openAddTeam()"></app-button>
-    <app-team *ngIf="equipeComponent"></app-team>
     <app-button mat-button [value]="btnPartie" (click)="openAddPartie()"></app-button>
-    <app-definition-partie *ngIf="partieComponent"></app-definition-partie>
-
-    <app-recap-points *ngIf="afficheTableau"></app-recap-points>
-
     <app-button mat-button [value]="btnPlie" (click)="openAddPlie()"></app-button>
+</div>
+    
+    <app-team *ngIf="equipeComponent"></app-team>
+    <app-definition-partie *ngIf="partieComponent"></app-definition-partie>
+    <app-recap-points *ngIf="afficheTableau"></app-recap-points>
     <app-definition-plie *ngIf="plieComponent"></app-definition-plie>
