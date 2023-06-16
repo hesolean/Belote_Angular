@@ -9,9 +9,7 @@ export class PartieService {
     afficheAnnonces: boolean = false;
 
     onAfficheAnnonces = (afficheAnnonces: boolean) => {
-        this.afficheAnnonces = afficheAnnonces;
-        console.log("service " + this.afficheAnnonces);
-        
+        this.afficheAnnonces = afficheAnnonces;        
     }
 
     onPtsFinPartie = (ptsFinPartie: number) => {

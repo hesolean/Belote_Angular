@@ -38,4 +38,12 @@ export class ModaleService {
     set setAfficheDefPlie(value: boolean) {
         this.afficheDefPlie.next(value);
     }
+
+    plieComponent = new BehaviorSubject<boolean>(false);
+    get getPlieComponent(): BehaviorSubject<boolean> {
+        return this.plieComponent;
+    }
+    set setPlieComponent(value: boolean) {
+        this.plieComponent.next(value);
+    }
 }

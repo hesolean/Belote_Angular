@@ -1,25 +1,28 @@
-<div class="defpli">
-  <h1><u>Définition du pli</u></h1>
-  <div class="critere">
-    <app-pris-atout></app-pris-atout>
-    <app-capot></app-capot>
-    <!--je crée un ng container pour conditionner l'affichage des 2 composants 
-      en fonction du type de capot les conteneurs s'affichent si le capot est "Aucun"-->
-    <ng-container *ngIf="affiche">
-      <app-dix-der></app-dix-der>
-      <app-points-equipe></app-points-equipe>
-    </ng-container>
+<div class="total">
+  <div class="defpli">
+    <h1><u>Définition du pli</u></h1>
+    <div class="critere">
+      <app-pris-atout></app-pris-atout>
+      <app-capot></app-capot>
+      <!--je crée un ng container pour conditionner l'affichage des 2 composants 
+        en fonction du type de capot les conteneurs s'affichent si le capot est "Aucun"-->
+      <ng-container *ngIf="affiche">
+        <app-dix-der></app-dix-der>
+        <app-points-equipe></app-points-equipe>
+      </ng-container>
+    </div>
+    <app-annonces *ngIf="afficheAnnonces"></app-annonces>
+    <!-- $event va vers la méthode onAddPointTotal du composant ComptePointService-->
+    <app-button
+      *ngIf="!finPartie"
+      [value]="btnValide"
+      (click)="handleAddPointTotal($event)"
+    ></app-button>
+    <app-button
+      *ngIf="finPartie"
+      [value]="btnValide2"
+      (click)="handleAddPartie($event)"
+    ></app-button>
   </div>
-  <app-annonces *ngIf="afficheAnnonces"></app-annonces>
-  <!-- $event va vers la méthode onAddPointTotal du composant ComptePointService-->
-  <app-button
-    *ngIf="!finPartie"
-    [value]="btnValide"
-    (click)="handleAddPointTotal($event)"
-  ></app-button>
-  <app-button
-    *ngIf="finPartie"
-    [value]="btnValide2"
-    (click)="handleAddPartie($event)"
-  ></app-button>
 </div>
+

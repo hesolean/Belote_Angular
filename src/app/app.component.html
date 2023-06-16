@@ -5,4 +5,6 @@
     <app-definition-partie *ngIf="partieComponent"></app-definition-partie>
 
     <app-recap-points *ngIf="afficheTableau"></app-recap-points>
-    <app-definition-plie *ngIf="afficheDefPlie"></app-definition-plie>
+
+    <app-button mat-button [value]="btnPlie" (click)="openAddPlie()"></app-button>
+    <app-definition-plie *ngIf="plieComponent"></app-definition-plie>

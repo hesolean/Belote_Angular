@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ComptePointService } from '../../services/compte-point.service';
 import { PartieService } from '../../services/partie.service';
+import { ModaleService } from '../../services/modale.service';
 
 @Component({
   selector: 'app-definition-plie',
@@ -30,7 +31,8 @@ export class DefinitionPlieComponent implements OnInit{
 
   constructor(
     private partieService: PartieService,
-    private comptePointService: ComptePointService
+    private comptePointService: ComptePointService,
+    private modaleService: ModaleService
     ) {}
   
   ngOnInit(): void {
@@ -56,7 +58,8 @@ export class DefinitionPlieComponent implements OnInit{
   handleAddPointTotal = (e: any) => {
     // appelle la fonction de compte service pour provoquer l'ajout des points
     this.comptePointService.onAddPointTotal(); 
-    this.finPartie = this.comptePointService.finPartie;  
+    this.finPartie = this.comptePointService.finPartie;
+    this.modaleService.setPlieComponent = false;  
   }
 
   /**
