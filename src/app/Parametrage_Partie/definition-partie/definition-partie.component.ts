@@ -55,12 +55,11 @@ export class DefinitionPartieComponent implements OnInit, OnDestroy{
    */
   handleValiderParam(){
     this.modaleService.setAfficheTableau = true;
-    this.modaleService.setAfficheDefPlie = true;      
+    this.modaleService.setAfficheDefPlie = true;
+    this.modaleService.setPartieComponent = false;
+
   }
   handleAfficheAnnonces = () => {
     this.partieService.onAfficheAnnonces(this.afficheAnnonces);
-  }
-  handleClose = () => {
-    this.modaleService.setPartieComponent = false;
   }
 }

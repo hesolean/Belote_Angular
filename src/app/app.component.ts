@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ModaleService } from './Parametrage_Partie/services/modale.service';
 import { Subscription } from 'rxjs';
-import { PartieService } from './Parametrage_Partie/services/partie.service';
 
 @Component({
   selector: 'app-root',
@@ -19,10 +18,12 @@ export class AppComponent {
   partieComponent: boolean = false;
   afficheTableau: boolean = false;
   afficheDefPlie: boolean = false;
+  plieComponent: boolean = false;
   
   // je donne le nom au bouton
   btnEquipe: string = "Créer les équipes";
   btnPartie: string = "Définir la partie";
+  btnPlie: string = "Nouveau plie";
 
 constructor(private modaleService: ModaleService) {}
   
@@ -35,19 +36,25 @@ constructor(private modaleService: ModaleService) {}
 
     this.subscription = this.modaleService.partieComponent.subscribe(
       (bool:boolean) => {
-        this.partieComponent = bool;//j'affecte la nouvelle valeur de boolean captée
+        this.partieComponent = bool;
       }
     )
 
     this.subscription = this.modaleService.afficheDefPlie.subscribe(
       (bool:boolean) => {
-        this.afficheDefPlie = bool;//j'affecte la nouvelle valeur de boolean captée
+        this.afficheDefPlie = bool;
       }
     )
 
     this.subscription = this.modaleService.afficheTableau.subscribe(
       (bool:boolean) => {
-        this.afficheTableau = bool;//j'affecte la nouvelle valeur de boolean captée
+        this.afficheTableau = bool;
+      }
+    )
+
+    this.subscription = this.modaleService.plieComponent.subscribe(
+      (bool:boolean) => {
+        this.plieComponent = bool;
       }
     )
   }
@@ -62,5 +69,8 @@ constructor(private modaleService: ModaleService) {}
   }
   openAddPartie = () => {
     this.partieComponent = true;
+  }
+  openAddPlie = () => {
+    this.plieComponent = true;
   }
 }
