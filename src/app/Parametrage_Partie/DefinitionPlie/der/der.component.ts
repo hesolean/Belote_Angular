@@ -32,11 +32,11 @@ export class DerComponent implements OnInit{
      // renseignement du tableau pour les étiquettes des boutons chip
     this.availableEquipes = [
       { 
-        name : this.equipes.find(item => item.idEquipes == 1)?.nomEquipe , 
+        name : this.equipes[0].nomEquipe , 
         color : 'accent' 
       },
       { 
-        name : this.equipes.find(item => item.idEquipes == 2)?.nomEquipe ,
+        name : this.equipes[1].nomEquipe ,
         color : 'accent'
       }
       ] ;

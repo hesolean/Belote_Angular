@@ -28,12 +28,9 @@ export class EquipeService {
      * @param pseudoEquipe désigne le nom de l'équipe
      */
     addEquipe = (pseudoEquipe: string) => {
-        const equipe = new EquipesModel(pseudoEquipe, [], [], 0, []);
-        //this._equipes.push(equipe);
-        console.log("pseudo : "+pseudoEquipe);
-        
+        const equipe = new EquipesModel(pseudoEquipe, [], [], 0, []);        
         this._equipes.splice(this.numEquipe,1,equipe);
-        console.log(this._equipes);
+        console.log(this._equipes[this.numEquipe]);
         
         this.numEquipe ++;
     }
