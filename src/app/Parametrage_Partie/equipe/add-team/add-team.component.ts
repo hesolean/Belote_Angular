@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 })
 
 export class AddEquipeComponent implements OnInit{
-
+  private numEquipe: number = 0;
   constructor(){}
   ngOnInit():void {}
 
@@ -21,11 +21,14 @@ export class AddEquipeComponent implements OnInit{
 
   handleAddEquipe(e: HTMLInputElement) {
     const data = e.value;
-
-    if (data == "") return;
-    this.newTeam.emit(data); 
-    // emet un $event qui correspond au paramètre de la méthode add utilisée dans le template
-    e.value = ""; // remet l'input à zéro
+    if (this.numEquipe < 2) {
+      if (data == "") return;
+      this.newTeam.emit(data); 
+      // emet un $event qui correspond au paramètre de la méthode add utilisée dans le template
+      e.value = ""; // remet l'input à zéro
+      this.numEquipe ++;
+    }
+    
   }
 
   }
