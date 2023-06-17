@@ -8,9 +8,11 @@ export class EquipeService {
     // définition du tableau pour les équipes en s'appuyant sur le model
     private _equipes: EquipesModel[] = [
         // pour l'instant j'incrémente en dur 2 valeurs pour développer
-        new EquipesModel("1", [], [], 0, []),
-        new EquipesModel("2", [], [], 0, [])
+        new EquipesModel("", [], [], 0, []),
+        new EquipesModel("", [], [], 0, [])
     ]
+
+    private numEquipe: number = 0;
 
     constructor() {}
 
@@ -27,7 +29,13 @@ export class EquipeService {
      */
     addEquipe = (pseudoEquipe: string) => {
         const equipe = new EquipesModel(pseudoEquipe, [], [], 0, []);
-        this._equipes.push(equipe);
+        //this._equipes.push(equipe);
+        console.log("pseudo : "+pseudoEquipe);
+        
+        this._equipes.splice(this.numEquipe,1,equipe);
+        console.log(this._equipes);
+        
+        this.numEquipe ++;
     }
 
     addPointsPlies(index: number, points: number) {
