@@ -4,9 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule} from '@angular/material/checkbox';
 
 
 // Les composants
@@ -28,6 +28,8 @@ import { AnnoncesComponent } from './Parametrage_Partie/DefinitionPlie/annonces/
 import { RecapPointsComponent } from './Parametrage_Partie/recap-points/recap-points.component';
 import { DisplayPointsComponent } from './Parametrage_Partie/recap-points/display-points/display-points.component';
 import { MatIconModule } from '@angular/material/icon';
+import { NavbarComponent } from './Commun/navbar/navbar.component';
+import { PlaygroungComponent } from './playgroung/playgroung.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { MatIconModule } from '@angular/material/icon';
     DixDerComponent,
     AnnoncesComponent,
     DisplayPointsComponent,
-    RecapPointsComponent
+    RecapPointsComponent,
+    NavbarComponent,
+    PlaygroungComponent
     ],
   imports: [
     BrowserModule,

@@ -341,4 +341,8 @@ export class ComptePointService {
         this.teamService.newArchivePartie(1, this.teamService.totalEquipe(1));
 
     }
+
+    resetPlie = () => {
+        // TODO remettre la plie à zero
+    }
 }
