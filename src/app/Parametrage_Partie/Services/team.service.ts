@@ -8,8 +8,8 @@ export class EquipeService {
     // définition du tableau pour les équipes en s'appuyant sur le model
     private _equipes: EquipesModel[] = [
         // pour l'instant j'incrémente en dur 2 valeurs pour développer
-        new EquipesModel("equipe 1", [], [], 0, []),
-        new EquipesModel("equipe 2", [], [], 0, [])
+        new EquipesModel("1", [], [], 0, []),
+        new EquipesModel("2", [], [], 0, [])
     ]
 
     constructor() {}

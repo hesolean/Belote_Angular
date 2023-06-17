@@ -1,6 +1,6 @@
 .global {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 .equipes {
     width: 500px;
