@@ -3,11 +3,11 @@
     <div class="equipes">
         <h1><u>Tableau de résultats</u></h1>
         <ul *ngFor="let equipe of equipes">
-          <li>
+            <li>
             <u>{{ equipe.nomEquipe }}</u>
             <div *ngFor="let point of equipe.pointsPlies">{{ point }}</div>
             <span
-              ><strong>Total : {{ equipe.totalPartie }}</strong></span
+              ><strong>Total : {{ equipe.totalPartie }}  </strong></span
             >
             </li>
         </ul>
