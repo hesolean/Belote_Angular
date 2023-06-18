@@ -3,6 +3,7 @@ import EquipesModel from "../models/EquipesModel";
 import { EquipeService } from "./team.service";
 import { PartieService } from "./partie.service";
 import { BehaviorSubject } from "rxjs";
+import ScoreModel from "../models/ScoreModel";
 
 @Injectable({
     providedIn: 'root'
@@ -40,6 +41,11 @@ export class ComptePointService {
     equipeCarre9: number = 2;
     equipeCarreAutres: number = 2;
     equipeCarre8!: boolean;
+
+    // affichage plis
+    recapPli: ScoreModel = new ScoreModel(0,'',0,'');
+    tableauRecap: Array<ScoreModel> = Array();
+    scoreEquipes = new BehaviorSubject<Array<ScoreModel>>(this.tableauRecap);
 
     // total partie
     totalEquipe0: number = this.teamService.totalEquipe(0);
@@ -80,7 +86,7 @@ export class ComptePointService {
      * @param id id équipe
      */
     setPreneur = (id: number) => {
-        this.preneur = id;
+        this.preneur = id;        
     }
 
     /**
@@ -88,7 +94,7 @@ export class ComptePointService {
      * @param couleur atout sélectionné
      */
     setCouleurAtout = (couleur: string) => {
-        this.couleurAtout = couleur;
+        this.couleurAtout = couleur;        
     }
 
     /**
@@ -322,6 +328,27 @@ export class ComptePointService {
         this.teamService.addPointsPlies(0, this.pointsPlieEquipe0);
         this.teamService.addPointsPlies(1, this.pointsPlieEquipe1);
         
+        // ajout des infos pour l'affichage des scores
+        if (this.preneur == 0) {
+            this.recapPli.atoutPris0 = this.couleurAtout;
+            console.log("onaddpoints0 : " + this.recapPli.atoutPris0);
+            
+        } else if (this.preneur == 1) {
+            this.recapPli.atoutPris1 = this.couleurAtout;
+            console.log("onaddpoints1 : " + this.recapPli.atoutPris1);
+
+        }
+        this.recapPli.scoreEquipe0 = this.pointsPlieEquipe0;
+        this.recapPli.scoreEquipe1 = this.pointsPlieEquipe1;
+        console.log("recap :" +this.recapPli);
+        
+        this.tableauRecap.push(this.recapPli);
+        console.log("tableau récap : "+this.tableauRecap);
+        
+        this.scoreEquipes.next(this.tableauRecap);
+        console.log("scores equipes : "+this.scoreEquipes);
+        
+
         // je mets à jour le total des équipes pour le pli
         this.teamService.newTotalEquipe(0, this.pointsPlieEquipe0);
         this.teamService.newTotalEquipe(1, this.pointsPlieEquipe1);

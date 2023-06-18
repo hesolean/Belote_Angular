@@ -3,6 +3,7 @@ import EquipesModel from '../../models/EquipesModel';
 import { EquipeService } from '../../services/team.service';
 import { Subscription } from 'rxjs';
 import { ComptePointService } from '../../services/compte-point.service';
+import ScoreModel from '../../models/ScoreModel';
 
 @Component({
   selector: 'app-display-points',
@@ -11,8 +12,10 @@ import { ComptePointService } from '../../services/compte-point.service';
 })
 export class DisplayPointsComponent implements OnInit, OnDestroy{
 
-  //j'initie des équipes
+  //j'initie des équipes et le score du pli
   equipes: EquipesModel[] = [];
+  //scoreEquipes!: ScoreModel;
+  tableauScores!: Array<ScoreModel>;
 
   //boolean pour mener les actions de fin de partie
   finPartie!: boolean;
@@ -33,6 +36,18 @@ export class DisplayPointsComponent implements OnInit, OnDestroy{
         this.finPartie = bool;//j'affecte la nouvelle valeur de boolean captée
       }
     )
+    // this.subscription = this.comptePointService.scoreEquipes.subscribe(
+    //   (recap:ScoreModel) => {
+    //     this.scoreEquipes = recap;//j'affecte la nouvelle valeur de boolean captée
+    //   }
+    // )
+    // this.tableauScores.push(this.scoreEquipes);
+    this.subscription = this.comptePointService.scoreEquipes.subscribe(
+      (recap:Array<ScoreModel>) => {
+        this.tableauScores = recap;//j'affecte la nouvelle valeur de boolean captée
+      }
+    )
+    // this.tableauScores.push(this.scoreEquipes);
   }
 
   /**
