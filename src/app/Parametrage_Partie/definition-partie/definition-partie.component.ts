@@ -42,10 +42,16 @@ export class DefinitionPartieComponent implements OnInit, OnDestroy{
     )
   }
 
+  /**
+   * destruction du composant entraine l'arrêt des souscriptions
+   */
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
     }
 
+  /**
+   * je récupère les points qui mettront fin à la partie
+   */
   handlePtsFinPartie(){
     this.partieService.onPtsFinPartie(this.ptsFinPartie);
   }
@@ -57,8 +63,11 @@ export class DefinitionPartieComponent implements OnInit, OnDestroy{
     this.modaleService.setAfficheTableau = true;
     this.modaleService.setAfficheDefPlie = true;
     this.modaleService.setPartieComponent = false;
-
   }
+
+  /**
+   * je récupère l'information concernant l'affichage des annonces
+   */
   handleAfficheAnnonces = () => {
     this.partieService.onAfficheAnnonces(this.afficheAnnonces);
   }

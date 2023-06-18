@@ -1,11 +1,15 @@
 <div class="total">
   <div class="defPartie">
     <h1><u>Définition de la partie</u></h1>
+
+      <!--input avec une méthode pour récupérer la valeur et l'enregistrer dans le ts-->
       <div class="input">
         <label for="points">Points minimum de la partie</label>
         <input id="points" type="number" [(ngModel)]="ptsFinPartie" 
         (ngModelChange)="handlePtsFinPartie()">
       </div>
+
+      <!--idem pour afficher ou non les annonces plus tard dans la définition du pli-->
       <div class="input">
         <label for="annonces">
             Annonces

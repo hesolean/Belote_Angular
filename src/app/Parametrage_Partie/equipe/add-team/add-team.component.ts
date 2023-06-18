@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { ModaleService } from '../../services/modale.service';
 
 @Component({
   selector: 'app-add-team',
@@ -7,8 +8,10 @@ import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 })
 
 export class AddEquipeComponent implements OnInit{
+  
   private numEquipe: number = 0;
-  constructor(){}
+
+  constructor(private modaleService: ModaleService){}
   ngOnInit():void {}
 
   // décorateur pour récupérer un élément
@@ -26,11 +29,10 @@ export class AddEquipeComponent implements OnInit{
       this.newTeam.emit(data); 
       // emet un $event qui correspond au paramètre de la méthode add utilisée dans le template
       e.value = ""; // remet l'input à zéro
-      this.numEquipe ++;
-    }
-    
+      this.numEquipe ++; //limite les équipes à 2 saisies
+
+      if (this.numEquipe == 2)//ferme la modale quand les 2 équipes sont saisies
+      this.modaleService.setEquipeComponent = false;
+    }    
   }
-
-  }
-
-
+}

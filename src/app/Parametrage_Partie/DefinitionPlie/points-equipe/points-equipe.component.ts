@@ -25,7 +25,6 @@ export class PointsEquipeComponent implements OnInit {
    */
   handlePointsEquipe(): void {
     this.comptePointService.setPointsComptes(this.points);
-    console.log("points" + this.points);
   }
 
   /**

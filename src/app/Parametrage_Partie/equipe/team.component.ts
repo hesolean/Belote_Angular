@@ -47,8 +47,5 @@ export class EquipeComponent implements OnInit{
    */
   handleAddEquipe = (e: string) => {
     this.teamService.addEquipe(e);    
-  }  
-  handleClose = () => {
-    this.modaleService.setEquipeComponent = false;
   }
 }

@@ -1,18 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ComptePointService } from '../../services/compte-point.service';
 import { PartieService } from '../../services/partie.service';
 import { ModaleService } from '../../services/modale.service';
 
 @Component({
-  selector: 'app-definition-plie',
-  templateUrl: './definition-plie.component.html',
-  styleUrls: ['./definition-plie.component.css']
+  selector: 'app-definition-pli',
+  templateUrl: './definition-pli.component.html',
+  styleUrls: ['./definition-pli.component.css']
 })
 
-export class DefinitionPlieComponent implements OnInit{
+export class DefinitionPliComponent implements OnInit{
 
-  // je donne le nom au bouton
-  btnValide: string = "Valider le plie";
+  // je donne le nom aux boutons
+  btnValide: string = "Valider le pli";
   btnValide2: string = "Enregistrer la partie";
 
   // je récupère l'information capot de mon service ComptePoint

@@ -3,7 +3,7 @@ import { ThemePalette } from '@angular/material/core';
 import { EquipeService } from '../../services/team.service';
 import { ComptePointService } from '../../services/compte-point.service';
 import EquipesModel from '../../models/EquipesModel';
-import { DefinitionPlieComponent } from '../definition-plie/definition-plie.component';
+import { DefinitionPliComponent } from '../definition-pli/definition-pli.component';
 
 // interface pour définir la liste des éléments à cocher
 export interface ChipColor {
@@ -28,7 +28,7 @@ export class CapotComponent implements OnInit{
   constructor(
     private teamService: EquipeService, 
     private comptePointService: ComptePointService, 
-    private definitionPlie: DefinitionPlieComponent
+    private definitionPlie: DefinitionPliComponent
     ) {}
 
   ngOnInit():void {

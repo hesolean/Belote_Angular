@@ -30,7 +30,7 @@ export class AnnoncesComponent {
     // je lie le service au composant
     this.equipes = this.teamService.equipes;
 
-    // renseignement du tableau pour les étiquettes des boutons chip
+    // renseignement du tableau pour les étiquettes des boutons d'annonces
     this.availableAnnonces = [
       { 
         name : 'Tierce' , 

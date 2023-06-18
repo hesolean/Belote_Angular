@@ -8,21 +8,26 @@ import { BehaviorSubject } from "rxjs";
     providedIn: 'root'
 })
 export class ComptePointService {
+    //tableaux de points des plis pour une partie
     private _pointsPliesEquipe0: Array<number> = new Array();
     private _pointsPliesEquipe1: Array<number> = new Array();
 
-    // config plie
+    // config plie : équipes et points par plie pour chaque équipe
     equipes: EquipesModel[] = [new EquipesModel('', [], [], 0, [])];
     pointsPlieEquipe0: number = 0;
     pointsPlieEquipe1: number = 0;
     
+    //définition du preneur et de la couleur d'atout
     couleurAtout!: string;
     preneur!: number;
     
+    //si le pli est capot
     capot!: string;
     
+    //equipe qui a fait le 10 de der
     equipe10Der!: number;
     
+    //équipe pour qui on a compté les points et les points obtenus
     equipeCompte!: number;
     pointsEquipeCompte: number = 0;
 
@@ -42,11 +47,12 @@ export class ComptePointService {
 
     // fin partie
     finPartie = new BehaviorSubject<boolean>(false);
-    
-
+   
     constructor(
         private teamService: EquipeService,
-        private partieService: PartieService) {}
+        private partieService: PartieService
+        ) {}
+
     /**
      * getteurs
      */
@@ -98,13 +104,15 @@ export class ComptePointService {
      * @param capot type de capot
      * @param preneur id équipe qui a pris
      */
-    onAddPointCapot = () => {        
+    onAddPointCapot = () => {     
+        //ajout des points pour l'équipe qui a fait capot   
         if (this.capot == "Capot") {
             if (this.preneur == 0) {
                 this.pointsPlieEquipe0 += 250;                
             } else {
                 this.pointsPlieEquipe1 += 250;
             }
+        //ajout des points pour l'équipe qui n'est pas dedans
         } else if (this.capot == "Dedans") {
             if (this.preneur == 0) {
                 this.pointsPlieEquipe1 += 160;
@@ -141,14 +149,15 @@ export class ComptePointService {
      */
     setEquipePointsComptes = (id: number) => {
         this.equipeCompte = id;        
-        }
+    }
  
     /**
      * je récupère les points du pli de l'équipe comptée
      * @param points points comptés par l'utilisateur
      */
     setPointsComptes = (points: number) => {
-        this.pointsEquipeCompte = 0; // je remets à 0 avant de prendre la dernière valeur tapée dans l'input
+        // je remets à 0 avant de prendre la dernière valeur tapée dans l'input
+        this.pointsEquipeCompte = 0; 
 
         this.pointsEquipeCompte += points;        
     }
@@ -296,7 +305,8 @@ export class ComptePointService {
             this.onAddPoint10Der();
             this.onAddPointsComptes();
         }
-        // j'ajoute es points d'annonces
+
+        // j'ajoute les points d'annonces
         if (!this.equipeCarre8) {
             
             this.onAddPointBelote();
@@ -306,43 +316,38 @@ export class ComptePointService {
             this.onAddPointCarreValet();
             this.onAddPointCarre9();
             this.onAddPointCarreAutres;
-        }
-        
+        }        
 
         // j'ajoute les points du plie à chaque équipe
         this.teamService.addPointsPlies(0, this.pointsPlieEquipe0);
         this.teamService.addPointsPlies(1, this.pointsPlieEquipe1);
         
-        // je mets à jour le total des équipes
+        // je mets à jour le total des équipes pour le pli
         this.teamService.newTotalEquipe(0, this.pointsPlieEquipe0);
         this.teamService.newTotalEquipe(1, this.pointsPlieEquipe1);
-
-        
-        console.log("points partie : "+ this.partieService.pointsPartie
-        + " total eq 1 : " + this.teamService.totalEquipe(0)
-        + " total eq 2 : " + this.teamService.totalEquipe(1));
         
         //Arret de la partie
         if (this.partieService.pointsPartie <= this.teamService.totalEquipe(0)
          || this.partieService.pointsPartie <= this.teamService.totalEquipe(1)) {
-            this.finPartie.next(true); 
-            console.log("on add points" +this.finPartie);
-            
-
+            this.finPartie.next(true);             
         } else {
             this.pointsPlieEquipe0 = 0;
             this.pointsPlieEquipe1 = 0;
         }
-
     }
 
+    /**
+     * je passe les totaux dans le tableau des parties
+     */
     onArchivesParties = () => {
         this.teamService.newArchivePartie(0, this.teamService.totalEquipe(0));
         this.teamService.newArchivePartie(1, this.teamService.totalEquipe(1));
-
     }
 
     resetPlie = () => {
         // TODO remettre la plie à zero
+        this._pointsPliesEquipe0.slice(0,this._pointsPliesEquipe0.length);
+        this._pointsPliesEquipe1.slice(0,this._pointsPliesEquipe1.length);
+
     }
 }
