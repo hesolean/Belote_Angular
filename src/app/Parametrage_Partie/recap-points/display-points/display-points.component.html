@@ -1,20 +1,20 @@
 <div class="global">
+  <div class="equipes">
+    <!-- résultat par équipe et par plie-->
+    <h1><u>Tableau de résultats</u></h1>
+    <ul *ngFor="let equipe of equipes">
+      <li>
+        <u>{{ equipe.nomEquipe }}</u>
+        <div *ngFor="let point of equipe.pointsPlies">{{ point }}</div>
+        <span
+          ><strong>Total : {{ equipe.totalPartie }} </strong></span
+        >
+      </li>
+    </ul>
+    <h1 class="finPartie" *ngIf="finPartie"><u>Partie terminée</u></h1>
+  </div>
 
-    <div class="equipes">
-        <h1><u>Tableau de résultats</u></h1>
-        <ul *ngFor="let equipe of equipes">
-            <li>
-            <u>{{ equipe.nomEquipe }}</u>
-            <div *ngFor="let point of equipe.pointsPlies">{{ point }}</div>
-            <span
-              ><strong>Total : {{ equipe.totalPartie }}  </strong></span
-            >
-            </li>
-        </ul>
-        <h1 class="finPartie" *ngIf="finPartie"><u>Partie terminée</u></h1>
-      </div>
-
-  
+  <!-- résultat de chaque partie-->
   <div class="equipes">
     <h1><u>Parties</u></h1>
     <ul *ngFor="let equipe of equipes">
@@ -25,4 +25,3 @@
     </ul>
   </div>
 </div>
-

@@ -18,13 +18,13 @@ export class PlaygroungComponent {
   partieComponent: boolean = false;
   afficheTableau: boolean = false;
   afficheDefPlie: boolean = false;
-  plieComponent: boolean = false;
+  pliComponent: boolean = false;
   finPartie: boolean = false;
   
   // je donne le nom au bouton
   btnEquipe: string = "Créer les équipes";
-  btnPartie: string = "Définir la partie";
-  btnPlie: string = "Nouveau plie";
+  btnPartie: string = "Définir la parti";
+  btnPli: string = "Nouveau pli";
   btnEnregistrePartie: string = "Enregistrer la partie";
 
 constructor(
@@ -59,7 +59,7 @@ constructor(
 
     this.subscription = this.modaleService.plieComponent.subscribe(
       (bool:boolean) => {
-        this.plieComponent = bool;
+        this.pliComponent = bool;
       }
     )
 
@@ -76,13 +76,13 @@ constructor(
 
   // affichage des modales
   openAddTeam = () => {
-    this.equipeComponent = true;  
+    this.equipeComponent = true;    
   }
   openAddPartie = () => {
     this.partieComponent = true;
   }
   openAddPlie = () => {
-    this.plieComponent = true;
+    this.pliComponent = true;
   }
   enregistrePartie = () => {
     this.comptePointService.onArchivesParties();

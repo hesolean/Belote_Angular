@@ -8,8 +8,6 @@ import EquipesModel from '../../models/EquipesModel';
 })
 
 export class DisplayComponent implements OnInit{
-/** pas de bouton delete pour le moment
- *   btnDelete: string = "delete"; */
 
   constructor(){}
 
@@ -17,17 +15,6 @@ export class DisplayComponent implements OnInit{
   @Input()
   equipes: EquipesModel[] = [new EquipesModel('', [], [], 0, [])]
 
-  /**évènement lié au template team.component pour la méthode onChange
-  @Output()
-  id: EventEmitter<number> = new EventEmitter(); */
-
   ngOnInit():void {}
 
-  /*onChange = (data: number) => {
-    this.id.emit(data)
-  }
-
-  delete = (id:number) => {
-    console.log(id);  
-  }*/
 }

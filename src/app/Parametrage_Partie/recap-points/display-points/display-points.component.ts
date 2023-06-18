@@ -11,9 +11,13 @@ import { ComptePointService } from '../../services/compte-point.service';
 })
 export class DisplayPointsComponent implements OnInit, OnDestroy{
 
+  //j'initie des équipes
   equipes: EquipesModel[] = [];
+
+  //boolean pour mener les actions de fin de partie
   finPartie!: boolean;
 
+  //souscription pour la transmission d'informations avec le service adapté
   subscription!: Subscription;
   
   constructor(
@@ -31,6 +35,9 @@ export class DisplayPointsComponent implements OnInit, OnDestroy{
     )
   }
 
+  /**
+   * destruction des souscriptions à la fin du composant
+   */
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
     }

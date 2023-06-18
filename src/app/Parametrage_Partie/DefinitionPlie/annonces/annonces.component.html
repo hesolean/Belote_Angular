@@ -1,19 +1,29 @@
 <h1><u>Annonces</u></h1>
 <div class="annonces">
     <div class="annonce">
+        <!-- equipe qui a déclaré la belote-->
         <h2>Belote et re !!</h2>
         <app-der (newTeamSelect)="handleSelectedTeamBelote($event)"></app-der>
     </div>
+
+    <!-- liste des annonces à disposition-->
     <div  *ngFor = "let annonce of availableAnnonces; let i=index">    
         <div class="annonce">
             <h2>{{annonce.name}}</h2>
             <app-der (newTeamSelect)="handleSelectedTeamsAnnonces(i, $event)"></app-der>
         </div>   
     </div>
+
+    <!-- cas particulier du carré de 8 qui annule toutes les annonces du pli-->
     <div class="annonce">
         <h2>Carré de 8</h2>
-        <input type="checkbox" [(ngModel)]="carre8Checked" (ngModelChange)="handleCarre8()">
+        <div class="carre8" >
+            <input type="checkbox" 
+        [(ngModel)]="carre8Checked" 
+        (ngModelChange)="handleCarre8()">
         Attention j'annule les annonces ...
+        </div>
+        
     </div>
 </div>
 

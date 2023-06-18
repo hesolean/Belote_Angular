@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './Login/login/login.component';
 import { EquipeComponent } from './Parametrage_Partie/equipe/team.component';
 import { DefinitionPartieComponent } from './Parametrage_Partie/definition-partie/definition-partie.component';
-import { DefinitionPlieComponent } from './Parametrage_Partie/DefinitionPlie/definition-plie/definition-plie.component';
+import { DefinitionPliComponent } from './Parametrage_Partie/DefinitionPlie/definition-pli/definition-pli.component';
 import { PrisAtoutComponent } from './Parametrage_Partie/DefinitionPlie/pris-atout/pris-atout.component';
 import { CapotComponent } from './Parametrage_Partie/DefinitionPlie/capot/capot.component';
 import { PointsEquipeComponent } from './Parametrage_Partie/DefinitionPlie/points-equipe/points-equipe.component';
@@ -37,7 +37,7 @@ import { PlaygroungComponent } from './playgroung/playgroung.component';
     LoginComponent,
     EquipeComponent,
     DefinitionPartieComponent,
-    DefinitionPlieComponent,
+    DefinitionPliComponent,
     PrisAtoutComponent,
     CapotComponent,
     PointsEquipeComponent,

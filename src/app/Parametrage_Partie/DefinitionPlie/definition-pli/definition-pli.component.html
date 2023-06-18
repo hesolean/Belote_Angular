@@ -2,8 +2,12 @@
   <div class="defpli">
     <h1><u>Définition du pli</u></h1>
     <div class="critere">
+      <!-- définition de l'équipe qui prend et quelle couleur-->
       <app-pris-atout></app-pris-atout>
+
+      <!-- l'équipe a fait capot ou non. Dans ce cas on déclanche le comptage des points-->
       <app-capot></app-capot>
+
       <!--je crée un ng container pour conditionner l'affichage des 2 composants 
         en fonction du type de capot les conteneurs s'affichent si le capot est "Aucun"-->
       <ng-container *ngIf="affiche">
@@ -11,8 +15,12 @@
         <app-points-equipe></app-points-equipe>
       </ng-container>
     </div>
+
+    <!-- les annonces s'affichent en fonction de ce qui a été déterminé à la définition de la partie-->
     <app-annonces *ngIf="afficheAnnonces"></app-annonces>
-    <!-- $event va vers la méthode onAddPointTotal du composant ComptePointService-->
+
+    <!-- $event va vers la méthode onAddPointTotal du composant ComptePointService
+    pour provoquer le comptage des points du plie-->
     <app-button
       [value]="btnValide"
       (click)="handleAddPointTotal($event)"
