@@ -1,5 +1,8 @@
 # BeloteAngular
 
+Ce projet développé sur Angular s'utilise de manière autonome. Il a pour objectif de compter les point des parties de Belote.
+Aujourd'hui, on ne peut pas stocker les parties.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
 
 ## Development server
