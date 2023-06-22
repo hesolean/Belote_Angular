@@ -15,7 +15,13 @@ export default class EquipesModel {
 
 
     /**constructeur d'un modèle */
-    constructor(nomEquipe: string, pointsplies: Array<number>, atoutPris: Array<string>, totalPartie: number, archivesParties: Array<number>) {
+    constructor(
+        nomEquipe: string,
+        pointsplies: Array<number>,
+        atoutPris: Array<string>,
+        totalPartie: number,
+        archivesParties: Array<number>
+        ) {
         this._nomEquipe = nomEquipe;
         this._pointsPlies = pointsplies;
         this._atoutPris = atoutPris;
