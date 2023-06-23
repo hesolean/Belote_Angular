@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import EquipesModel from "../models/EquipesModel";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
     providedIn: 'root'

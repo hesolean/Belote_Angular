@@ -36,18 +36,11 @@ export class DisplayPointsComponent implements OnInit, OnDestroy{
         this.finPartie = bool;//j'affecte la nouvelle valeur de boolean captée
       }
     )
-    // this.subscription = this.comptePointService.scoreEquipes.subscribe(
-    //   (recap:ScoreModel) => {
-    //     this.scoreEquipes = recap;//j'affecte la nouvelle valeur de boolean captée
-    //   }
-    // )
-    // this.tableauScores.push(this.scoreEquipes);
-    this.subscription = this.comptePointService.scoreEquipes.subscribe(
-      (recap:Array<ScoreModel>) => {
-        this.tableauScores = recap;//j'affecte la nouvelle valeur de boolean captée
+    this.subscription = this.comptePointService.tableauScores.subscribe(
+      (scores:Array<ScoreModel>) => {
+        this.tableauScores = scores;
       }
     )
-    // this.tableauScores.push(this.scoreEquipes);
   }
 
   /**
