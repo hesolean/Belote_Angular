@@ -3,6 +3,7 @@ import { Tableau } from '../der/der.component';
 import EquipesModel from '../../models/EquipesModel';
 import { EquipeService } from '../../services/team.service';
 import { ComptePointService } from '../../services/compte-point.service';
+import { AnnoncesService } from '../../services/annonces.service';
 
 @Component({
   selector: 'app-annonces',
@@ -23,7 +24,8 @@ export class AnnoncesComponent {
 
   constructor(
     private teamService: EquipeService,
-    private comptePointService: ComptePointService
+    private comptePointService: ComptePointService,
+    private annoncesService: AnnoncesService
     ) {}
 
   ngOnInit():void {
@@ -64,27 +66,27 @@ export class AnnoncesComponent {
    * @param id id équipe
    */
   handleSelectedTeamBelote(id: number):void {
-    this.comptePointService.setEquipeBelote(id);
+    this.annoncesService.setEquipeBelote(id);
   }
 
   // méthodes pour attribuer les équipes des différences annonces hors belote et carré de 8
   selectedTeamTierce(id: number):void {
-    this.comptePointService.setEquipeTierce(id);
+    this.annoncesService.setEquipeTierce(id);
   }
   selectedTeamCinquante(id: number):void {
-    this.comptePointService.setEquipeCinquante(id);
+    this.annoncesService.setEquipeCinquante(id);
   }
   selectedTeamCent(id: number):void {
-    this.comptePointService.setEquipeCent(id);
+    this.annoncesService.setEquipeCent(id);
   }
   selectedTeamCarreValet(id: number):void {
-    this.comptePointService.setEquipeCarreValet(id);
+    this.annoncesService.setEquipeCarreValet(id);
   }
   selectedTeamCarre9(id: number):void {
-    this.comptePointService.setEquipeCarre9(id);
+    this.annoncesService.setEquipeCarre9(id);
   }
   selectedTeamCarreAutres(id: number):void {
-    this.comptePointService.setEquipeCarreAutres(id);
+    this.annoncesService.setEquipeCarreAutres(id);
   }
 
   /**
@@ -112,6 +114,6 @@ export class AnnoncesComponent {
    * méthode propre au carré de 8 qui annule toutes les annonces
    */
   handleCarre8(): void {
-    this.comptePointService.onAddCarre8(this.carre8Checked);
+    this.annoncesService.onAddCarre8(this.carre8Checked);
   }
 }
