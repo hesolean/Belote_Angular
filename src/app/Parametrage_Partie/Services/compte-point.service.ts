@@ -228,7 +228,7 @@ export class ComptePointService {
         //Arret de la partie
         if (this.partieService.pointsPartie <= this.teamService.totalEquipe(0)
          || this.partieService.pointsPartie <= this.teamService.totalEquipe(1)) {
-            this.finPartie.next(true);             
+            this.finPartie.next(true);
         } else {
             this.pointsPlieEquipe0 = 0;
             this.pointsPlieEquipe1 = 0;
@@ -241,5 +241,20 @@ export class ComptePointService {
     onArchivesParties = () => {
         this.teamService.newArchivePartie(0, this.teamService.totalEquipe(0));
         this.teamService.newArchivePartie(1, this.teamService.totalEquipe(1));
+    }
+
+    resetPartie(){
+        this.couleurAtout = "";
+        this.equipe10Der = 0;
+        this.equipeCompte = 0;
+        this.pointsEquipeCompte = 0;
+        this.pointsPlieEquipe0 = 0;
+        this.pointsPlieEquipe1 = 0;
+        this.preneur = 0;
+        this.scorePlis = new ScoreModel(0,"",0,"");
+        this.scoresPlis = Array();
+        this.teamService.equipes[0].totalPartie = 0;
+        this.teamService.equipes[1].totalPartie = 0;
+
     }
 }
