@@ -252,9 +252,8 @@ export class ComptePointService {
         this.pointsPlieEquipe1 = 0;
         this.preneur = 0;
         this.scorePlis = new ScoreModel(0,"",0,"");
-        this.scoresPlis = Array();
         this.teamService.equipes[0].totalPartie = 0;
         this.teamService.equipes[1].totalPartie = 0;
-
+        this.scoresPlis = new Array();
     }
 }
