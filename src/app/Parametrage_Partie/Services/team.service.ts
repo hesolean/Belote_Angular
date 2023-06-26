@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import EquipesModel from "../models/EquipesModel";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -51,6 +52,9 @@ export class EquipeService {
         this._equipes[index].totalPartie += points; 
     }
 
+    resetTotalEquipe(index: number) {
+        this._equipes[index].totalPartie = 0;
+    }
     newArchivePartie(index: number, points: number) {
         this._equipes[index].archivesParties.push(points); 
     }

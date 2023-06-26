@@ -1,25 +1,42 @@
 <div class="global">
-  <div class="equipes">
+  <div class="tableauPlis">
     <!-- résultat par équipe et par plie-->
     <h1><u>Tableau de résultats</u></h1>
-    <ul *ngFor="let equipe of equipes">
-      <li>
-        <u>{{ equipe.nomEquipe }}</u>
-        <div *ngFor="let point of equipe.pointsPlies">{{ point }}</div>
+    <div class="equipes">
+      <div>
+        <h2><strong>{{ equipes[0].nomEquipe }}</strong></h2>
+        <ul *ngFor="let score of tableauScores">
+          <div class="score">
+            <li>{{ score.scoreEquipe0 }} {{ score.couleurAtout0 }}</li>
+          </div>
+        </ul>
         <span
-          ><strong>Total : {{ equipe.totalPartie }} </strong></span
+          ><strong>Total : {{ equipes[0].totalPartie }} </strong></span
         >
-      </li>
-    </ul>
-    <h1 class="finPartie" *ngIf="finPartie"><u>Partie terminée</u></h1>
+      </div>
+      <div>
+        <h2><strong>{{ equipes[1].nomEquipe }}</strong></h2>
+        <ul *ngFor="let score of tableauScores">
+          <div class="score">
+            <li>{{ score.scoreEquipe1 }} {{ score.couleurAtout1 }}</li>
+          </div>
+        </ul>
+        <span
+          ><strong>Total : {{ equipes[1].totalPartie }} </strong></span
+        >
+      </div>
+    </div>
+    <div *ngIf="finPartie">
+      <h1 class="finPartie"><strong>Partie terminée</strong></h1>
+    </div>
   </div>
 
   <!-- résultat de chaque partie-->
-  <div class="equipes">
+  <div class="parties">
     <h1><u>Parties</u></h1>
     <ul *ngFor="let equipe of equipes">
       <li>
-        <u>{{ equipe.nomEquipe }}</u>
+        <h2><strong>{{ equipe.nomEquipe }}</strong></h2>
         <div *ngFor="let point of equipe.archivesParties">{{ point }}</div>
       </li>
     </ul>

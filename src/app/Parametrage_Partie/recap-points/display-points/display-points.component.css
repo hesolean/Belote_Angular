@@ -1,8 +1,14 @@
+@font-face {
+    font-family: shadowHand;
+    src: url('../../../../assets/ShadowHand.ttf');
+}
+
 .global {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
-.equipes {
+.tableauPlis {
     width: 500px;
     margin-left: auto;
     margin-right: auto;
@@ -13,20 +19,43 @@
     border: 5px double darkgreen;
     margin-bottom: 2rem;
 } 
+.parties {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    color: darkgreen;
+    background-color: lightgreen;    
+    border-radius: 15px;
+    border: 5px double darkgreen;
+    margin-bottom: 2rem;
+}
 
+.equipes {
+    font-size: 1.5em;
+    color: darkgreen;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.score {
+    display: inline-flex;   
+
+}
 ul {
     margin-left: 0;
     padding-left: 0;
     list-style-type: none;
-    font-size: 1.5em;
-    color: darkgreen;
-    display: inline-flex;   
+    
 }
 
+h2 {
+    font-family: 'ShadowHand';
+    text-shadow: 0px 0px 5px lightgreen;
+}
 li {
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
+    padding: 20px;
 }
 
 div {
@@ -35,4 +64,10 @@ div {
 
 .finPartie {
     color: red;
+    font-family: 'ShadowHand';
+    text-shadow: 0px 0px 5px lightcoral;
+}
+
+span {
+    padding: 20px;
 }

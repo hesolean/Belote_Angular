@@ -87,6 +87,6 @@ constructor(
   enregistrePartie = () => {
     this.comptePointService.onArchivesParties();
     this.comptePointService.finPartie.next(false);
-    this.comptePointService.resetPlie();
+    this.comptePointService.resetPartie();
   }
 }
