@@ -52,6 +52,9 @@ export class EquipeService {
         this._equipes[index].totalPartie += points; 
     }
 
+    resetTotalEquipe(index: number) {
+        this._equipes[index].totalPartie = 0;
+    }
     newArchivePartie(index: number, points: number) {
         this._equipes[index].archivesParties.push(points); 
     }

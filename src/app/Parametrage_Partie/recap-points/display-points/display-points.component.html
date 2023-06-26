@@ -26,7 +26,9 @@
         >
       </div>
     </div>
-    <h1 class="finPartie" *ngIf="finPartie"><strong>Partie terminée</strong></h1>
+    <div *ngIf="finPartie">
+      <h1 class="finPartie"><strong>Partie terminée</strong></h1>
+    </div>
   </div>
 
   <!-- résultat de chaque partie-->
