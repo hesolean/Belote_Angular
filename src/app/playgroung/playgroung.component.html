@@ -2,12 +2,11 @@
 <div class="button">
     <app-button mat-button [value]="btnEquipe" (click)="openAddTeam()"></app-button>
     <app-button mat-button [value]="btnPartie" (click)="openAddPartie()"></app-button>
+    
     <app-button mat-button [value]="btnPli" (click)="openAddPlie()"></app-button>
+</div>
     <app-button mat-button *ngIf="finPartie" [value]="btnEnregistrePartie"
      (click)="enregistrePartie()"></app-button>
-
-</div>
-    
     <app-team *ngIf="equipeComponent"></app-team>
     <app-definition-partie *ngIf="partieComponent"></app-definition-partie>
     <app-recap-points *ngIf="afficheTableau"></app-recap-points>
