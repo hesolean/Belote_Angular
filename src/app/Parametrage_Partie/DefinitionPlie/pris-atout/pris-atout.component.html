@@ -14,5 +14,5 @@
     <mat-button-toggle value="trefle"> Trèfle </mat-button-toggle>
   </mat-button-toggle-group>
 
-  <app-der (newTeamSelect)="handleSelectedTeam($event)"></app-der>
+  <app-der *ngIf=selectedButton (newTeamSelect)="handleSelectedTeam($event)"></app-der>
 </div>
