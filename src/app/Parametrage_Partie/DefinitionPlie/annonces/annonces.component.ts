@@ -3,7 +3,6 @@ import { Tableau } from '../der/der.component';
 import EquipesModel from '../../models/EquipesModel';
 import { EquipeService } from '../../services/team.service';
 import { ComptePointService } from '../../services/compte-point.service';
-import { AnnoncesService } from '../../services/annonces.service';
 
 @Component({
   selector: 'app-annonces',
@@ -25,7 +24,6 @@ export class AnnoncesComponent {
   constructor(
     private teamService: EquipeService,
     private comptePointService: ComptePointService,
-    private annoncesService: AnnoncesService
     ) {}
 
   ngOnInit():void {
@@ -66,27 +64,27 @@ export class AnnoncesComponent {
    * @param id id équipe
    */
   handleSelectedTeamBelote(id: number):void {
-    this.annoncesService.setEquipeBelote(id);
+    this.comptePointService.setEquipeBelote(id);
   }
 
   // méthodes pour attribuer les équipes des différences annonces hors belote et carré de 8
   selectedTeamTierce(id: number):void {
-    this.annoncesService.setEquipeTierce(id);
+    this.comptePointService.setEquipeTierce(id);
   }
-  selectedTeamCinquante(id: number):void {
-    this.annoncesService.setEquipeCinquante(id);
+  selectedTeamCinquante(id: number):void {    
+    this.comptePointService.setEquipeCinquante(id);
   }
   selectedTeamCent(id: number):void {
-    this.annoncesService.setEquipeCent(id);
+    this.comptePointService.setEquipeCent(id);
   }
   selectedTeamCarreValet(id: number):void {
-    this.annoncesService.setEquipeCarreValet(id);
+    this.comptePointService.setEquipeCarreValet(id);
   }
   selectedTeamCarre9(id: number):void {
-    this.annoncesService.setEquipeCarre9(id);
+    this.comptePointService.setEquipeCarre9(id);
   }
   selectedTeamCarreAutres(id: number):void {
-    this.annoncesService.setEquipeCarreAutres(id);
+    this.comptePointService.setEquipeCarreAutres(id);
   }
 
   /**
@@ -94,9 +92,9 @@ export class AnnoncesComponent {
    * @param index de la liste des annonces
    * @param id de l'équipe sélectionnée
    */
-  handleSelectedTeamsAnnonces(index: number,id: number): void {    
+  handleSelectedTeamsAnnonces(index: number,id: number): void {        
     if (index == 0) {
-      this.selectedTeamTierce(id);      
+      this.selectedTeamTierce(id);            
     } else if (index == 1) {
       this.selectedTeamCinquante(id);
     } else if (index == 2) {
@@ -114,6 +112,6 @@ export class AnnoncesComponent {
    * méthode propre au carré de 8 qui annule toutes les annonces
    */
   handleCarre8(): void {
-    this.annoncesService.onAddCarre8(this.carre8Checked);
+    this.comptePointService.setEquipeCarre8(this.carre8Checked);
   }
 }

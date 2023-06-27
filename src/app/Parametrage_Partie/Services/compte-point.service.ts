@@ -4,7 +4,6 @@ import { EquipeService } from "./team.service";
 import { PartieService } from "./partie.service";
 import { BehaviorSubject } from "rxjs";
 import ScoreModel from "../models/ScoreModel";
-import { AnnoncesService } from "./annonces.service";
 
 @Injectable({
     providedIn: 'root'
@@ -33,6 +32,16 @@ export class ComptePointService {
     equipeCompte!: number;
     pointsEquipeCompte: number = 0;
 
+    // equipes recevant les points annonces
+    equipeBelote: number = 2;
+    equipeTierce: number = 2;
+    equipeCinquante: number = 2;
+    equipeCent: number = 2;
+    equipeCarreValet: number = 2;
+    equipeCarre9: number = 2;
+    equipeCarreAutres: number = 2;
+    equipeCarre8: boolean = false;
+
     // total partie
     totalEquipe0: number = this.teamService.totalEquipe(0);
     totalEquipe1: number = this.teamService.totalEquipe(1);
@@ -52,7 +61,6 @@ export class ComptePointService {
     constructor(
         private teamService: EquipeService,
         private partieService: PartieService,
-        private annoncesService: AnnoncesService,
         ) {}
 
     /**
@@ -90,9 +98,20 @@ export class ComptePointService {
      * @param couleur atout sélectionné
      */
     setCouleurAtout = (couleur: string) => {
-        this.couleurAtout = couleur;
-        console.log("setcouleuratout : " + this.couleurAtout + " / "+couleur);
-                
+        this.couleurAtout = couleur;                
+    }
+
+    onAddAtout(preneur: number, atout: string){
+        if (preneur == 0) {
+            this.couleurAtout0 = atout;
+            this.couleurAtout1 = "-";
+        } else {
+            this.couleurAtout0 = "-",
+            this.couleurAtout1 = atout
+        }        
+        this.scorePlis = new ScoreModel (this.pointsPlieEquipe0,this.couleurAtout0, this.pointsPlieEquipe1, this.couleurAtout1);
+        this.scoresPlis.push(this.scorePlis);
+        this.tableauScores.next(this.scoresPlis);
     }
 
     /**
@@ -180,20 +199,98 @@ export class ComptePointService {
         }    
     }
 
-    onAddAtout(preneur: number, atout: string){
-        if (preneur == 0) {
-            this.couleurAtout0 = atout;
-            this.couleurAtout1 = "-";
-        } else {
-            this.couleurAtout0 = "-",
-            this.couleurAtout1 = atout
-        }
-        console.log("onAddAtout : " + this.couleurAtout0 + " / " + this.couleurAtout1);
+    /**
+     * je récupère l'id de l'équipe qui va recevoir les points des annonces
+     * @param id id equipe
+     */
+    setEquipeBelote = (id: number) => {
+        console.log("eq belote");
         
-        this.scorePlis = new ScoreModel (this.pointsPlieEquipe0,this.couleurAtout0, this.pointsPlieEquipe1, this.couleurAtout1);
-        this.scoresPlis.push(this.scorePlis);
-        this.tableauScores.next(this.scoresPlis);
+        this.equipeBelote = id;
     }
+    setEquipeTierce = (id: number) => {   
+        console.log("eq tierce");
+                     
+        this.equipeTierce = id;
+    }
+    setEquipeCinquante = (id: number) => {
+        console.log("eq cinquante");
+        
+        this.equipeCinquante = id;
+    }
+    setEquipeCent = (id: number) => {
+        console.log("eq cent");
+        
+        this.equipeCent = id;
+    }
+    setEquipeCarreValet = (id: number) => {
+        console.log("eq c valet");
+        
+        this.equipeCarreValet = id;
+    }
+    setEquipeCarre9 = (id: number) => {
+        console.log("eq c9");
+        
+        this.equipeCarre9 = id;
+    }
+    setEquipeCarreAutres = (id: number) => {
+        console.log("eq autres");
+        
+        this.equipeCarreAutres = id;
+    }
+    setEquipeCarre8 = (carre8Checked: boolean) => {  
+        console.log("eq c8");
+        
+        this.equipeCarre8 = carre8Checked;              
+    }
+
+    onAddPointsAtout(){
+
+        if (!this.equipeCarre8) {
+            if (this.equipeBelote == 0) {
+                this.pointsPlieEquipe0 += 20
+            } else if (this.equipeBelote == 1) {
+                this.pointsPlieEquipe1 += 20;
+            }   
+
+            if (this.equipeTierce == 0) {
+                this.pointsPlieEquipe0 += 20
+            } else if (this.equipeTierce == 1) {
+                this.pointsPlieEquipe1 += 20                
+            }
+
+            if (this.equipeCinquante == 0) {
+                this.pointsPlieEquipe0 += 50
+            } else if (this.equipeCinquante == 1) {
+                this.pointsPlieEquipe1 += 50
+            }
+
+            if (this.equipeCent == 0) {
+                this.pointsPlieEquipe0 += 100
+            } else if (this.equipeCent == 1) {
+                this.pointsPlieEquipe1 += 100
+            }  
+
+            if (this.equipeCarreValet == 0) {
+                this.pointsPlieEquipe0 += 200
+            } else if (this.equipeCarreValet == 1) {
+                this.pointsPlieEquipe1 += 200
+            }   
+            
+            if (this.equipeCarre9 == 0) {
+                this.pointsPlieEquipe0 += 150
+            } else if (this.equipeCarre9 == 1) {
+                this.pointsPlieEquipe1 += 150
+            } 
+
+            if (this.equipeCarreAutres == 0) {
+                this.pointsPlieEquipe0 += 100
+            } else if (this.equipeCarreAutres == 1) {
+                this.pointsPlieEquipe1 += 100
+            }             
+        }
+    }
+    
     /**
      * autoriser l'ajout des points du plie à chaque équipe
      */
@@ -208,12 +305,9 @@ export class ComptePointService {
             this.onAddPointsComptes();
         }
 
-        // j'ajoute les points d'annonces
-        if (!this.annoncesService.equipeCarre8) {
-            this.pointsPlieEquipe0 += this.annoncesService.pointsAnnoncesEquipe0;
-            this.pointsPlieEquipe1 += this.annoncesService.pointsAnnoncesEquipe1;
-        }        
-
+        // j'ajoute les points d'atout
+        this.onAddPointsAtout();
+        
         // j'ajoute les points du plie à chaque équipe
         this.teamService.addPointsPlies(0, this.pointsPlieEquipe0);
         this.teamService.addPointsPlies(1, this.pointsPlieEquipe1);
@@ -223,7 +317,7 @@ export class ComptePointService {
         this.teamService.newTotalEquipe(1, this.pointsPlieEquipe1);
 
         //j'envoie les informations vers les scores
-        this.onAddAtout(this.preneur, this.couleurAtout);
+        this.onAddAtout(this.preneur, this.couleurAtout);        
 
         //Arret de la partie
         if (this.partieService.pointsPartie <= this.teamService.totalEquipe(0)
@@ -232,6 +326,15 @@ export class ComptePointService {
         } else {
             this.pointsPlieEquipe0 = 0;
             this.pointsPlieEquipe1 = 0;
+            this.equipe10Der = 2;
+            this.equipeBelote = 2;
+            this.equipeTierce = 2;
+            this.equipeCinquante = 2;
+            this.equipeCent = 2;
+            this.equipeCarreValet = 2;
+            this.equipeCarre9 = 2;
+            this.equipeCarreAutres = 2;
+            this.equipeCarre8 = false;
         }
     }
 
@@ -255,5 +358,14 @@ export class ComptePointService {
         this.teamService.equipes[0].totalPartie = 0;
         this.teamService.equipes[1].totalPartie = 0;
         this.scoresPlis = new Array();
+        this.equipe10Der = 2;
+        this.equipeBelote = 2;
+        this.equipeTierce = 2;
+        this.equipeCinquante = 2;
+        this.equipeCent = 2;
+        this.equipeCarreValet = 2;
+        this.equipeCarre9 = 2;
+        this.equipeCarreAutres = 2;
+        this.equipeCarre8 = false;
     }
 }

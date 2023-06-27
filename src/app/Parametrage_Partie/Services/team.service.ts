@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import EquipesModel from "../models/EquipesModel";
-import { BehaviorSubject } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -30,9 +29,7 @@ export class EquipeService {
      */
     addEquipe = (pseudoEquipe: string) => {
         const equipe = new EquipesModel(pseudoEquipe, [], [], 0, []);        
-        this._equipes.splice(this.numEquipe,1,equipe);
-        console.log(this._equipes[this.numEquipe]);
-        
+        this._equipes.splice(this.numEquipe,1,equipe);        
         this.numEquipe ++;
     }
 
@@ -55,6 +52,7 @@ export class EquipeService {
     resetTotalEquipe(index: number) {
         this._equipes[index].totalPartie = 0;
     }
+    
     newArchivePartie(index: number, points: number) {
         this._equipes[index].archivesParties.push(points); 
     }
