@@ -56,7 +56,7 @@ export class DefinitionPliComponent implements OnInit{
    */
   handleAddPointTotal = (e: any) => {
     // appelle la fonction de compte service pour provoquer l'ajout des points
-    this.comptePointService.onAddPointTotal(); 
+    this.comptePointService.onAddPointTotal();     
     this.modaleService.setPlieComponent = false;  
   }
 

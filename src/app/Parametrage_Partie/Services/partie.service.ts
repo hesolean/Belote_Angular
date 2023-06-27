@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import Partie from "../models/PartieModel";
 
 @Injectable({
     providedIn: 'root'
@@ -14,7 +13,5 @@ export class PartieService {
 
     onPtsFinPartie = (ptsFinPartie: number) => {
         this.pointsPartie = ptsFinPartie;
-        console.log("pts partie : " + this.pointsPartie );
-
     }
 }

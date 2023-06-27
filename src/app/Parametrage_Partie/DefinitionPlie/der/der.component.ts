@@ -52,6 +52,6 @@ export class DerComponent implements OnInit{
    */
   handleTeamSelect(id: number): void {
     if (id == null) return;
-    this.newTeamSelect.emit(id);
+    this.newTeamSelect.emit(id);    
   }
 }
