@@ -17,7 +17,7 @@ export class DefinitionPliComponent implements OnInit{
   btnValide3: string = "Annuler";
 
   // je récupère l'information capot de mon service ComptePoint
-  capot: string = this.comptePointService.capot;
+  //capot: string = this.comptePointService.capot;
   
   // je crée un boolean pour afficher ou non les composants 10 de der et points équipe
   // il est utilisé dans le template
