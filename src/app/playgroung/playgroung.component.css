@@ -1,6 +1,57 @@
+@font-face {
+    font-family: shadowHand;
+    src: url('../../assets/ShadowHand.ttf');
+}
+
 .button {
     padding: 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.rappelPoints {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 600px;
+    margin: auto;
+    color: darkgreen;
+    background-color: lightgreen;    
+    border-radius: 15px;
+    border: 5px double darkgreen;
+    margin-bottom: 2rem;
+}
+
+.tableau {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.atouts, .reste {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+h3 {
+    text-shadow: 0px 0px 5px whitesmoke;
+    font-family: 'ShadowHand';
+    font-size: 1.5em;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.nomCartes {
+    text-shadow: 0px 0px 5px whitesmoke;
+    font-family: 'ShadowHand';
+    font-size: 1.5em;
+    text-align: center;
+}
+
+li {
+    padding: 5px;
 }

@@ -24,12 +24,12 @@ import { ButtonComponent } from './Commun/button/button.component';
 import { AddEquipeComponent } from './Parametrage_Partie/equipe/add-team/add-team.component';
 import { DisplayComponent } from './Parametrage_Partie/equipe/display/display.component';
 import { DixDerComponent } from './Parametrage_Partie/DefinitionPlie/dix-der/dix-der.component';
-import { AnnoncesComponent } from './Parametrage_Partie/DefinitionPlie/annonces/annonces.component';
 import { RecapPointsComponent } from './Parametrage_Partie/recap-points/recap-points.component';
 import { DisplayPointsComponent } from './Parametrage_Partie/recap-points/display-points/display-points.component';
 import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './Commun/navbar/navbar.component';
 import { PlaygroungComponent } from './playgroung/playgroung.component';
+import { AnnoncesComponent } from './Parametrage_Partie/DefinitionPlie/annonces/annonces.component';
 
 @NgModule({
   declarations: [
@@ -46,11 +46,11 @@ import { PlaygroungComponent } from './playgroung/playgroung.component';
     AddEquipeComponent,
     DisplayComponent,
     DixDerComponent,
-    AnnoncesComponent,
     DisplayPointsComponent,
     RecapPointsComponent,
     NavbarComponent,
-    PlaygroungComponent
+    PlaygroungComponent,
+    AnnoncesComponent
     ],
   imports: [
     BrowserModule,

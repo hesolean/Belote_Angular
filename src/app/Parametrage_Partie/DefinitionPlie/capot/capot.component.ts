@@ -46,9 +46,9 @@ export class CapotComponent implements OnInit{
    * méthode qui renvoie le type de capot sélectionnée par l'utilisateur
    * @param type type de capot sélectionnée
    */
-  handleTypeCapot(type: string): void {
-    this.comptePointService.setCapot(type);
-    // j'appelle la méthode du composant definitionPlie pour forcer le statut du boolean affiche
-    this.definitionPlie.onChangeAffiche(type);
-  }
+  // handleTypeCapot(type: string): void {
+  //   this.comptePointService.setCapot(type);
+  //   // j'appelle la méthode du composant definitionPlie pour forcer le statut du boolean affiche
+  //   this.definitionPlie.onChangeAffiche(type);
+  // }
 }
