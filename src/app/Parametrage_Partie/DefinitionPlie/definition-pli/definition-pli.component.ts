@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ComptePointService } from '../../services/compte-point.service';
 import { PartieService } from '../../services/partie.service';
 import { ModaleService } from '../../services/modale.service';
@@ -12,8 +12,9 @@ import { ModaleService } from '../../services/modale.service';
 export class DefinitionPliComponent implements OnInit{
 
   // je donne le nom aux boutons
-  btnValide: string = "Valider le pli";
+  btnValide: string = "Valider";
   btnValide2: string = "Enregistrer la partie";
+  btnValide3: string = "Annuler";
 
   // je récupère l'information capot de mon service ComptePoint
   capot: string = this.comptePointService.capot;
@@ -66,5 +67,10 @@ export class DefinitionPliComponent implements OnInit{
    */
   handleAddPartie = (e: any) => {
     this.comptePointService.onArchivesParties();
+  }
+
+  @Output() annulePli = new EventEmitter<boolean>();
+  handleAnnulePli = (e: any) => {
+    this.annulePli.emit(false);
   }
 }

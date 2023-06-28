@@ -38,3 +38,12 @@
     justify-content: center;
     align-items: center;
 }
+ .boutons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+ }
+
+ app-button{
+    padding: 15px;
+ }

@@ -10,4 +10,56 @@
     <app-team *ngIf="equipeComponent"></app-team>
     <app-definition-partie *ngIf="partieComponent"></app-definition-partie>
     <app-recap-points *ngIf="afficheTableau"></app-recap-points>
-    <app-definition-pli *ngIf="pliComponent"></app-definition-pli>
+    <app-definition-pli *ngIf="pliComponent" (annulePli)="handleAnnulePli()"></app-definition-pli>
+<div class="rappelPoints">
+    <div class="atouts">
+        <h3><u>
+            Points d'atout :</u>
+        </h3>
+        <ul>
+            <li class="nomCartes">Valet</li>
+            <li class="nomCartes">9</li>
+            <li class="nomCartes">As</li>
+            <li class="nomCartes">10</li>
+            <li class="nomCartes">Roi</li>
+            <li class="nomCartes">Dame</li>
+            <li class="nomCartes">8</li>
+            <li class="nomCartes">7</li>
+        </ul>
+        <ul>
+            <li>20</li>
+            <li>14</li>
+            <li>11</li>
+            <li>10</li>
+            <li>4</li>
+            <li>3</li>
+            <li>0</li>
+            <li>0</li>
+        </ul>
+    </div>
+    <div class="reste">
+        <h3><u>
+            Points des autres couleurs :</u>
+        </h3>
+        <ul>
+            <li class="nomCartes">As</li>
+            <li class="nomCartes">10</li>
+            <li class="nomCartes">Roi</li>
+            <li class="nomCartes">Dame</li>
+            <li class="nomCartes">Valet</li>
+            <li class="nomCartes">9</li>
+            <li class="nomCartes">8</li>
+            <li class="nomCartes">7</li>
+        </ul>
+        <ul>
+            <li>11</li>
+            <li>10</li>
+            <li>4</li>
+            <li>3</li>
+            <li>2</li>
+            <li>0</li>
+            <li>0</li>
+            <li>0</li>
+        </ul>
+    </div>
+</div>
