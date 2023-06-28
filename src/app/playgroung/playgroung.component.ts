@@ -88,5 +88,9 @@ constructor(
     this.comptePointService.onArchivesParties();
     this.comptePointService.finPartie.next(false);
     this.comptePointService.resetPartie();
+
+  }
+  handleAnnulePli(){
+    this.pliComponent = false;
   }
 }

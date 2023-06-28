@@ -10,4 +10,4 @@
     <app-team *ngIf="equipeComponent"></app-team>
     <app-definition-partie *ngIf="partieComponent"></app-definition-partie>
     <app-recap-points *ngIf="afficheTableau"></app-recap-points>
-    <app-definition-pli *ngIf="pliComponent"></app-definition-pli>
+    <app-definition-pli *ngIf="pliComponent" (annulePli)="handleAnnulePli()"></app-definition-pli>
