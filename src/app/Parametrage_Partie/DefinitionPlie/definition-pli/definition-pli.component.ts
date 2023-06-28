@@ -12,9 +12,9 @@ import { ModaleService } from '../../services/modale.service';
 export class DefinitionPliComponent implements OnInit{
 
   // je donne le nom aux boutons
-  btnValide: string = "Valider le pli";
+  btnValide: string = "Valider";
   btnValide2: string = "Enregistrer la partie";
-  btnValide3: string = "Annuler le pli";
+  btnValide3: string = "Annuler";
 
   // je récupère l'information capot de mon service ComptePoint
   capot: string = this.comptePointService.capot;
